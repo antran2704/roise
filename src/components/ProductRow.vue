@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div class="row">
-                <Product v-for="item in 6" :key="item" />
+                <Product v-for="item in 6" col="col-lg-3 col-md-4 col-sm-6 col-6" :key="item" />
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 
 <template>
-    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+    <div :class="col">
         <div class="ltn__product-item text-center">
             <div class="product-img">
                 <NuxtLink to="product/1"><img src="/img/product/1.png" alt="#"></NuxtLink>
@@ -20,3 +20,7 @@
         </div>
     </div>
 </template>
+
+<script setup>
+    const props = defineProps(["col"])
+</script>
