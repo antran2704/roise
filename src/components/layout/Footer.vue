@@ -67,7 +67,8 @@
                                     <img src="/img/logo.png" alt="Logo">
                                 </div>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo incididunt ut labore et dolore</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo incididunt ut labore
+                                et dolore</p>
                             <div class="footer-address">
                                 <ul>
                                     <li>
