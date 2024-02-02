@@ -10,98 +10,33 @@
                         <div class="ltn__shop-details-inner">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="ltn__shop-details-large-img">
-                                        <img src="/img/product/1.png" alt="Image">
+                                    <div @click="onClickFancybox" class="ltn__shop-details-large-img">
+                                        <img :src="currentImage" alt="Product" title="Product" loading="lazy" width="auto"
+                                            height="auto">
+
+                                        <div
+                                            class="ltn__shop-details-gallery-count d-flex justify-content-center align-items-center">
+                                            <p class="ltn__shop-details-gallery-number">{{ currentIndexSlide + 1 }}</p>
+                                            <p class="ltn__shop-details-gallery-number">/</p>
+                                            <p class="ltn__shop-details-gallery-number">{{ gallery.length }}</p>
+                                        </div>
                                     </div>
 
                                     <div class="ltn__shop-details-img-gallery ltn__shop-details-img-gallery-2">
-                                        <Swiper :modules="[SwiperNavigation]" :slides-per-view="3" :loop="true"
+                                        <Swiper @swiper="getRef" :modules="[SwiperNavigation]" :slides-per-view="3"
                                             :space-between="10" :navigation="{
                                                 enabled: true,
-                                            }" :breakpoints="{ 768: { slidesPerView: 4 } }" class="ltn__shop-details-small-img slick-arrow-2">
-
-                                            <!-- <button ref="btnPrevtRef" class="slick-prev slick-arrow">
-                                                <i class="icon-arrow-left" alt="Arrow Icon"></i>
-                                            </button>
-                                            <button ref="btnNextRef" class="slick-next slick-arrow">
-                                                <i class="icon-arrow-right" alt="Arrow Icon"></i>
-                                            </button> -->
-
-                                            <SwiperSlide class="single-small-img">
-                                                <img src="/img/product/1.png" alt="Image">
-                                            </SwiperSlide>
-                                            <SwiperSlide class="single-small-img">
-                                                <img src="/img/product/2.png" alt="Image">
-                                            </SwiperSlide>
-                                            <SwiperSlide class="single-small-img">
-                                                <img src="/img/product/3.png" alt="Image">
-                                            </SwiperSlide>
-                                            <SwiperSlide class="single-small-img">
-                                                <img src="/img/product/1.png" alt="Image">
-                                            </SwiperSlide>
-                                            <SwiperSlide class="single-small-img">
-                                                <img src="/img/product/2.png" alt="Image">
-                                            </SwiperSlide>
-                                            <SwiperSlide class="single-small-img">
-                                                <img src="/img/product/3.png" alt="Image">
+                                            }" :breakpoints="{ 768: { slidesPerView: 4 } }" :slides-per-group="1"
+                                            class="ltn__shop-details-small-img slick-arrow-2">
+                                            <SwiperSlide v-for="(image, index) in gallery" :key="index"
+                                                class="single-small-img" @click="() => {
+                                                    currentImage = image
+                                                    onSlideChange();
+                                                }">
+                                                <img :class="{ isActive: image === currentImage }" :src="image"
+                                                    alt="Product" title="Product" loading="lazy" width="auto" height="auto">
                                             </SwiperSlide>
                                         </Swiper>
-
-                                        <!-- <div class="single-small-img">
-                                                <img src="/img/product/2.png" alt="Image">
-                                            </div>
-                                            <div class="single-small-img">
-                                                <img src="/img/product/3.png" alt="Image">
-                                            </div>
-                                            <div class="single-small-img">
-                                                <img src="/img/product/4.png" alt="Image">
-                                            </div>
-                                            <div class="single-small-img">
-                                                <img src="/img/product/5.png" alt="Image">
-                                            </div>
-                                            <div class="single-small-img">
-                                                <img src="/img/product/6.png" alt="Image">
-                                            </div>
-                                            <div class="single-small-img">
-                                                <img src="/img/product/7.png" alt="Image">
-                                            </div> -->
-                                        <!-- <div class="ltn__shop-details-large-img">
-                                            <div class="single-large-img">
-                                                <a href="/img/product/1.png" data-rel="lightcase:myCollection">
-                                                    <img src="/img/product/1.png" alt="Image">
-                                                </a>
-                                            </div>
-                                            <div class="single-large-img">
-                                                <a href="/img/product/2.png" data-rel="lightcase:myCollection">
-                                                    <img src="/img/product/2.png" alt="Image">
-                                                </a>
-                                            </div>
-                                            <div class="single-large-img">
-                                                <a href="/img/product/3.png" data-rel="lightcase:myCollection">
-                                                    <img src="/img/product/3.png" alt="Image">
-                                                </a>
-                                            </div>
-                                            <div class="single-large-img">
-                                                <a href="/img/product/4.png" data-rel="lightcase:myCollection">
-                                                    <img src="/img/product/4.png" alt="Image">
-                                                </a>
-                                            </div>
-                                            <div class="single-large-img">
-                                                <a href="/img/product/5.png" data-rel="lightcase:myCollection">
-                                                    <img src="/img/product/5.png" alt="Image">
-                                                </a>
-                                            </div>
-                                            <div class="single-large-img">
-                                                <a href="/img/product/6.png" data-rel="lightcase:myCollection">
-                                                    <img src="/img/product/6.png" alt="Image">
-                                                </a>
-                                            </div>
-                                            <div class="single-large-img">
-                                                <a href="/img/product/7.png" data-rel="lightcase:myCollection">
-                                                    <img src="/img/product/7.png" alt="Image">
-                                                </a>
-                                            </div>
-                                        </div> -->
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -221,7 +156,7 @@
             </div>
         </div>
         <!-- SHOP DETAILS AREA END -->
-
+        <FancyBox v-if="isShowFancybox" :gallery="gallery" :currentIndex="currentIndexSlide" :onClose="onClickFancybox" />
         <!-- SHOP DETAILS TAB AREA START -->
         <div class="ltn__shop-details-tab-area pb-60">
             <div class="container">
@@ -636,10 +571,46 @@
                 </div>
             </div>
         </div>
-        <ProductRow />
+        <SlideProduct />
+        <Brand />
     </div>
 </template>
 <script setup>
-const btnPrevtRef = ref(null);
-const btnNextRef = ref(null);
+import { Swiper } from 'swiper/vue';
+const gallery = [
+    "/img/product/1.png",
+    "/img/product/2.png",
+    "/img/product/3.png",
+    "/img/product/4.png",
+    "/img/product/5.png",
+    "/img/product/6.png",
+    "/img/product/7.png",
+]
+
+const isShowFancybox = ref(false);
+
+const currentImage = ref(gallery[0]);
+const currentIndexSlide = ref(0);
+const swiper = ref(null);
+
+const getRef = (swiperInstance) => {
+    swiper.value = swiperInstance
+}
+
+const onClickFancybox = () => {
+    isShowFancybox.value = !isShowFancybox.value
+}
+
+const onSlideChange = () => {
+    const newIndex = swiper.value.clickedIndex;
+    if (newIndex > currentIndexSlide.value) {
+        swiper.value.slideNext();
+    }
+
+    if (newIndex < currentIndexSlide.value) {
+        swiper.value.slidePrev();
+    }
+
+    currentIndexSlide.value = newIndex
+};
 </script>
