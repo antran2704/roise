@@ -16,11 +16,10 @@
                     <button ref="btnNextRef" class="slick-next slick-arrow">
                         <i class="icon-arrow-right" alt="Arrow Icon"></i>
                     </button>
-                    <SwiperSlide
-                        v-slot="{ isActive }"
+                    <SwiperSlide v-slot="{ isActive }" v-for="(slide, index) in slides" :key="index"
                         class="ltn__slide-item ltn__slide-item-8 text-color-white---- bg-image bg-overlay-theme-black-80---"
-                        style="background-image: url('/img/slider/1.jpg');">
-                        <div class="ltn__slide-item-inner" :class="{isActive}">
+                        :style="{ 'background-image': `url(${slide})` }">
+                        <div class="ltn__slide-item-inner" :class="{ isActive }">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-12 align-self-center">
@@ -28,44 +27,8 @@
                                             <div class="slide-item-info-inner">
                                                 <div class="slide-item-info">
                                                     <div class="slide-item-info-inner">
-                                                        <h1 class="slide-title ">Fresh Flower</h1>
-                                                        <h6
-                                                            class="slide-sub-title ltn__body-color slide-title-line">
-                                                            Natural & Beautiful Flower Here</h6>
-                                                        <div class="slide-brief">
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                                                sed
-                                                                do
-                                                                eiusmod tempor incididunt ut labore.</p>
-                                                        </div>
-                                                        <div class="btn-wrapper">
-                                                            <a href="service.html" class="theme-btn-1 btn btn-round">Shop
-                                                                Now</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide
-                        v-slot="{ isActive }"
-                        class="ltn__slide-item ltn__slide-item-8 text-color-white---- bg-image bg-overlay-theme-black-80---"
-                        style="background-image: url('/img/slider/3.jpg');">
-                        <div class="ltn__slide-item-inner" :class="{isActive}">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-12 align-self-center">
-                                        <div class="slide-item-info">
-                                            <div class="slide-item-info-inner">
-                                                <div class="slide-item-info">
-                                                    <div class="slide-item-info-inner">
-                                                        <h1 class="slide-title ">Fresh Flower</h1>
-                                                        <h6
-                                                            class="slide-sub-title ltn__body-color slide-title-line">
+                                                        <h1 class="slide-title">Fresh Flower</h1>
+                                                        <h6 class="slide-sub-title ltn__body-color slide-title-line">
                                                             Natural & Beautiful Flower Here</h6>
                                                         <div class="slide-brief">
                                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
@@ -89,6 +52,7 @@
                 </Swiper>
             </div>
         </div>
+
         <!-- FEATURE AREA START ( Feature - 3) -->
         <div class="ltn__feature-area mt-100 mt--65">
             <div class="container">
@@ -157,4 +121,10 @@
 <script setup>
 const btnPrevtRef = ref(null);
 const btnNextRef = ref(null);
+
+const slides = [
+    '/img/slider/1.jpg',
+    '/img/slider/3.jpg'
+]
+
 </script>

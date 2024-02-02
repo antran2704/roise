@@ -220,47 +220,47 @@
         /* --------------------------------------------------------
             12. Product Details Page
         --------------------------------------------------------- */
-        $('.ltn__shop-details-large-img').slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: false,
-            fade: true,
-            asNavFor: '.ltn__shop-details-small-img'
-        });
-        $('.ltn__shop-details-small-img').slick({
-            slidesToShow: 4,
-            slidesToScroll: 1,
-            asNavFor: '.ltn__shop-details-large-img',
-            dots: false,
-            arrows: false,
-            vertical: true,
-            focusOnSelect: true,
-            prevArrow: '<a class="slick-prev"><i class="icon-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="icon-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 992,
-                    settings: {
-                        slidesToShow: 4,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 580,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1
-                    }
-                }
-            ]
-        });
+        // $('.ltn__shop-details-large-img').slick({
+        //     slidesToShow: 1,
+        //     slidesToScroll: 1,
+        //     arrows: false,
+        //     fade: true,
+        //     asNavFor: '.ltn__shop-details-small-img'
+        // });
+        // $('.ltn__shop-details-small-img').slick({
+        //     slidesToShow: 4,
+        //     slidesToScroll: 1,
+        //     asNavFor: '.ltn__shop-details-large-img',
+        //     dots: false,
+        //     arrows: false,
+        //     vertical: true,
+        //     focusOnSelect: true,
+        //     prevArrow: '<a class="slick-prev"><i class="icon-arrow-left" alt="Arrow Icon"></i></a>',
+        //     nextArrow: '<a class="slick-next"><i class="icon-arrow-right" alt="Arrow Icon"></i></a>',
+        //     responsive: [
+        //         {
+        //             breakpoint: 992,
+        //             settings: {
+        //                 slidesToShow: 4,
+        //                 slidesToScroll: 1
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 768,
+        //             settings: {
+        //                 slidesToShow: 3,
+        //                 slidesToScroll: 1
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 580,
+        //             settings: {
+        //                 slidesToShow: 3,
+        //                 slidesToScroll: 1
+        //             }
+        //         }
+        //     ]
+        // });
                         
         /* --------------------------------------------------------
             13. Isotope Gallery Active  ( Gallery / Portfolio )
