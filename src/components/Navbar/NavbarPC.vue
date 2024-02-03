@@ -57,7 +57,7 @@
                                             <i class="icon-phone"></i>
                                         </div>
                                         <div class="header-feature-info">
-                                            <h6>Phone</h6>
+                                            <p class="fw-bold">Điện thoại</p>
                                             <p>
                                                 <NuxtLink to="tel:0123456789">+0123-456-789</NuxtLink>
                                             </p>

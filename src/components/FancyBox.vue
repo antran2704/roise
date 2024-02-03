@@ -25,20 +25,18 @@
                 </li>
             </ul>
         </div>
-        <div class="fancybox_control">
-            <div @click="handlePrevImage" class="fancybox_control-arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
-                    stroke="currentColor" class="w-12 h-12 text-white">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                </svg>
+        <div @click="handlePrevImage" class="fancybox_control-arrow fancybox_control-arrow-prev">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
+                class="w-12 h-12 text-white">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
 
-            </div>
-            <div @click="handleNextImage" class="fancybox_control-arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
-                    stroke="currentColor" class="w-12 h-12 text-white">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                </svg>
-            </div>
+        </div>
+        <div @click="handleNextImage" class="fancybox_control-arrow fancybox_control-arrow-next">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
+                class="w-12 h-12 text-white">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
         </div>
 
     </div>
@@ -87,6 +85,7 @@ const handlePrevImage = () => {
 }
 
 const handleTouchOnMobile = (e) => {
+    console.log("touce")
     const centerScreen = window.innerWidth / 2;
     const direction = e.pageX;
 
@@ -98,7 +97,7 @@ const handleTouchOnMobile = (e) => {
 }
 
 onMounted(() => {
-    document.querySelector("body").style.overflowY = "hidden"
+    document.querySelector("body").style.overflowY = "hidden";
 })
 
 onBeforeUnmount(() => {

@@ -522,7 +522,7 @@ p {
   color: var(--ltn__paragraph-color);
   font-family: var(--ltn__paragraph-font);
   font-weight: 300;
-  margin-bottom: 1.5em;
+  margin-bottom: 0px;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
   -ms-hyphens: auto;
@@ -3868,6 +3868,10 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     color: var(--ltn__secondary-color);
     font-weight: 500; }
 
+.product-price p {
+  margin-bottom: 0;
+}
+    
 /* ----------------------------------------------------
     Price Filter Widget
 ---------------------------------------------------- */
@@ -6986,6 +6990,29 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     .product-price-ratting > ul > li:last-child {
       margin-right: 0; }
 
+.product_price {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.product_title {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.product_text {
+  font-size: 16px;
+}
+
+.product_price .product_price-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ltn__secondary-color);
+  margin: 0;
+}
+
 .product-cart-wishlist-btn .btn {
   padding: 13px 20px;
   font-size: 14px;
@@ -7244,6 +7271,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 .ltn__shop-details-large-img {
   position: relative;
   height: 500px;
+  cursor: pointer;
 }
 
 .ltn__shop-details-large-img .ltn__shop-details-gallery-count {
@@ -7304,7 +7332,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 }
 
 .ltn__shop-details-img-gallery-2 {
-  margin: 10px 0px;
+  margin: 10px 0px 30px;
 }
 
 .ltn__shop-details-img-gallery-2 .ltn__shop-details-small-img {
@@ -13205,6 +13233,7 @@ input.cart-plus-minus-box {
   right: 0;
   bottom: 0;
   transition: all linear 0.2s;
+  animation: showFancyBox linear 0.2s forwards;
   z-index: 9999;
 }
 
@@ -13214,8 +13243,7 @@ input.cart-plus-minus-box {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(1, 1, 1, 0.6);
-  backdrop-filter: blur(10px);
+  background-color: rgba(1, 1, 1, 0.8);
 }
 
 .fancybox_header {
@@ -13250,13 +13278,17 @@ input.cart-plus-minus-box {
 .fancybox_content {
   position: absolute;
   width: 100%;
-  height: 100vh;
+  height: 94vh;
   left: 50%;
   transform: translateX(-50%);
   z-index: 30;
 }
 
 .fancybox_content .fancybox_content-large-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: auto;
   height: 70vh;
   margin: 0 auto;
@@ -13314,19 +13346,31 @@ input.cart-plus-minus-box {
   z-index: 20;
 }
 
-.fancybox_control .fancybox_control-arrow {
+.fancybox_control-arrow {
+  position: absolute;
+  top: 50%;
   width: 40px;
   height: 40px;
   background-color: #18181ba6;
   opacity: 0.8;
   cursor: pointer;
   border-radius: 50%;
+  transform: translateY(-50%);
   transition: all linear 0.2s;
+  z-index: 30;
 }
 
-.fancybox_control .fancybox_control-arrow:hover {
+.fancybox_control-arrow:hover {
   background-color: var(--ltn__secondary-color);
   opacity: 1;
+}
+
+.fancybox_control-arrow-prev {
+  left: 10px;
+}
+
+.fancybox_control-arrow-next {
+  right: 10px;
 }
 
 @media(min-width: 768px) {
@@ -13345,7 +13389,7 @@ input.cart-plus-minus-box {
 
 @media(min-width: 991px) {
   .fancybox_content {
-    width: auto;
+    width: 50%;
   }
 
   .fancybox_content .fancybox_content-large-image {
@@ -13359,6 +13403,59 @@ input.cart-plus-minus-box {
   }
 }
 
+.btn_back {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 2px 12px;
+  border-radius: 12px;
+  opacity: 0.8;
+  border: 2px solid;
+  transition: all linear 0.2s;
+}
+
+.btn_back:hover {
+  opacity: 1;
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  z-index: 9999;
+}
+
+.loading .loading_img {
+  width: 300px;
+  height: 300px;
+}
+
+.show_list {
+  transition: all linear 0.2s;
+  overflow: hidden;
+}
+
+.show_btn {
+  font-size: 14px;
+  margin: 0 auto;
+  background-color: transparent;
+  color: var(--ltn__secondary-color);
+  transition: all linear 0.2s;
+}
+
+@keyframes showFancyBox {
+  0% {
+    opacity: 0;
+  } 100% {
+    opacity: 1;
+  }
+  
+}
 
 /* ----------------------------------------------------
     END

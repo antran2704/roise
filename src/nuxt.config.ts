@@ -8,5 +8,11 @@ export default defineNuxtConfig({
     `assets/css/style.css`,
     `assets/css/responsive.css`,
   ],
+  runtimeConfig: {
+    domain: process.env.NUXT_DOMAIN,
+    public: {
+      apiEndpont: process.env.NUXT_PUBLIC_API_ENDPOINT
+    }
+  },
   devtools: { enabled: true },
 });

@@ -99,10 +99,10 @@
                             </div>
                             <div class="ltn__social-media mt-20 d-none">
                                 <ul>
-                                    <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
-                                    <li><a href="#" title="Youtube"><i class="fab fa-youtube"></i></a></li>
+                                    <li><a href="/" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="/" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="/" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
+                                    <li><a href="/" title="Youtube"><i class="fab fa-youtube"></i></a></li>
                                 </ul>
                             </div>
                             <div class="footer-payment-img">
@@ -134,10 +134,10 @@
                             </div>
                             <div class="ltn__social-media ">
                                 <ul>
-                                    <li><a href="#" title="Facebook"><i class="icon-social-facebook"></i></a></li>
-                                    <li><a href="#" title="Twitter"><i class="icon-social-twitter"></i></a></li>
-                                    <li><a href="#" title="Pinterest"><i class="icon-social-pinterest"></i></a></li>
-                                    <li><a href="#" title="Instagram"><i class="icon-social-instagram"></i></a></li>
+                                    <li><a href="/" title="Facebook"><i class="icon-social-facebook"></i></a></li>
+                                    <li><a href="/" title="Twitter"><i class="icon-social-twitter"></i></a></li>
+                                    <li><a href="/" title="Pinterest"><i class="icon-social-pinterest"></i></a></li>
+                                    <li><a href="/" title="Instagram"><i class="icon-social-instagram"></i></a></li>
                                 </ul>
                             </div>
                         </div>
