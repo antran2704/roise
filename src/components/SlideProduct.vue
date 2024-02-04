@@ -25,17 +25,19 @@
                     <button ref="btnNextRef" class="slick-next slick-arrow">
                         <i class="icon-arrow-right" alt="Arrow Icon"></i>
                     </button>
-                    <SwiperSlide v-for="(item, index) in items" :key="index">
+                    <SwiperSlide v-if="!isLoading" v-for="(item, index) in items" :key="index">
                         <Product :data="item" />
                     </SwiperSlide>
-
+                    <SwiperSlide v-if="isLoading" v-for="(item, index) in 4" :key="index" >
+                        <ProductLoading />
+                    </SwiperSlide>
                 </Swiper>
             </div>
         </div>
     </div>
 </template>
 <script setup>
-const props = defineProps(["title", "items"])
+const props = defineProps(["title", "items", "isLoading"])
 
 const btnPrevtRef = ref(null);
 const btnNextRef = ref(null);

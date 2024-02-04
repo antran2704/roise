@@ -1,26 +1,8 @@
 <template>
-    <Loading v-if="pending" />
-    <div v-else>
-
-        <Head>
-            <Title>{{ product.Name }}</Title>
-            <Link rel="canonical" :href="`${runtimeConfig.domain}/products/${product._id}`"/>
-            <Meta name="description" :content="product.Overview" />
-
-            <!-- Open Graph / Facebook -->
-            <Meta property="og:type" content="website" />
-            <Meta property="og:url" content="https://metatags.io/" />
-            <Meta property="og:title" :content="product.Name" />
-            <Meta property="og:description" :content="product.Overview" />
-            <Meta property="og:image" :content="product.Picture" />
-
-            <!-- Twitter -->
-            <Meta property="twitter:card" content="summary_large_image" />
-            <Meta property="twitter:url" content="https://metatags.io/" />
-            <Meta property="twitter:title" :content="product.Name" />
-            <Meta property="twitter:description" :content="product.Overview" />
-            <Meta property="twitter:image" :content="product.Picture" />
-        </Head>
+    <Loading v-if="pending || !product" />
+    <div v-if="!pending && product">
+        <Seo :title="product.Name" :description="product.Overview"
+            :canonical="`${runtimeConfig.domain}/products/${product._id}`" :picture="product.Picture"/>
 
 
         <Breadcrumb title="Sản phẩm" :list="[{ label: 'Trang Chủ', path: '/' }, { label: product.Name }]" />
@@ -34,7 +16,8 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div @click="onClickFancybox" class="ltn__shop-details-large-img">
-                                        <Image :src="currentImage" :alt="product.Name" title="thumbnail" />
+                                        <img :src="currentImage" :alt="product.Name" title="thumbnail" loading="lazy"
+                                            width="auto" height="auto" />
 
                                         <div
                                             class="ltn__shop-details-gallery-count d-flex justify-content-center align-items-center">
@@ -56,7 +39,7 @@
                                                     onSlideChange();
                                                 }">
                                                 <Image :class="{ isActive: image === currentImage }" :src="image"
-                                                :alt="product.Name" :title="product.Name" />
+                                                    :alt="product.Name" :title="product.Name" />
                                             </SwiperSlide>
                                         </Swiper>
                                     </div>
@@ -126,8 +109,9 @@
                 </div>
             </div>
         </div>
-        <!-- SHOP DETAILS AREA END -->
+
         <FancyBox v-if="isShowFancybox" :gallery="gallery" :currentIndex="currentIndexSlide" :onClose="onClickFancybox" />
+        <!-- SHOP DETAILS AREA END -->
         <!-- SHOP DETAILS TAB AREA START -->
         <div class="ltn__shop-details-tab-area pb-60">
             <div class="container">
@@ -261,7 +245,7 @@
                 </div>
             </div>
         </div>
-        <SlideProduct title="Sản phẩm khác" :items="data"/>
+        <SlideProduct title="Sản phẩm khác" :items="data" />
         <Brand />
     </div>
 </template>
@@ -270,20 +254,20 @@ const runtimeConfig = useRuntimeConfig();
 const route = useRoute();
 const router = useRouter();
 const id = route.params.id;
-const { data: product, pending } = await useFetch(`${runtimeConfig.public.apiEndpont}/products/${id}`)
+const { data: product, pending } = await useFetch(`${runtimeConfig.public.apiEndpoint}/products/${id}`)
 
 if (!product.value && !pending.value) {
     router.push("/404");
 }
 
-const gallery = product.value.Gallery;
+const gallery = product.value ? product.value.Gallery : [];
 
 const isShowFancybox = ref(false);
 const currentImage = ref(gallery[0]);
 const currentIndexSlide = ref(0);
 const swiper = ref(null);
 
-const { data } = await useAsyncData(() => $fetch(`${runtimeConfig.public.apiEndpont}/products`))
+const { data } = await useAsyncData(() => $fetch(`${runtimeConfig.public.apiEndpoint}/products`))
 
 const getRef = (swiperInstance) => {
     swiper.value = swiperInstance
@@ -305,13 +289,4 @@ const onSlideChange = () => {
 
     currentIndexSlide.value = newIndex
 };
-
-useSeoMeta({
-    title: product.Name,
-    ogTitle: product.Name,
-    description: product.Overview,
-    ogDescription: product.Overview,
-    ogImage: product.Picture,
-    twitterCard: 'summary_large_image',
-})
 </script>

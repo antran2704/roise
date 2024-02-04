@@ -1,6 +1,9 @@
 <template>
+    <Seo title="Trang chủ" description="Fiama description"
+        :canonical="`${runtimeConfig.domain}`" picture="/img/logo.png" />
+
     <SlideShow />
-    <ProductRow title="Sản phẩm nổi bật" :items="data" />
+    <ProductRow title="Sản phẩm nổi bật" :items="data" :isLoading="pending" />
     <div class="ltn__banner-area">
         <div class="container">
             <div class="row justify-content-center">
@@ -9,12 +12,11 @@
             </div>
         </div>
     </div>
-    <SlideProduct title="Sản phẩm nổi bật" :items="data" />
+    <SlideProduct title="Sản phẩm nổi bật" :items="data" :isLoading="pending" />
     <Brand />
 </template>
 
 <script setup>
 const runtimeConfig = useRuntimeConfig();
-const { data } = await useAsyncData(() => $fetch(`${runtimeConfig.public.apiEndpont}/products`), { server: false })
-
+const { data, pending } = await useAsyncData(() => $fetch(`${runtimeConfig.public.apiEndpoint}/products`), { server: false })
 </script>

@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     domain: process.env.NUXT_DOMAIN,
     public: {
-      apiEndpont: process.env.NUXT_PUBLIC_API_ENDPOINT,
+      apiEndpoint: process.env.NUXT_PUBLIC_API_ENDPOINT,
     },
   },
   
