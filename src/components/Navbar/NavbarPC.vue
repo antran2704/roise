@@ -133,20 +133,20 @@
                                                         <NuxtLink to="#">Inner Pages</NuxtLink>
                                                         <ul>
                                                             <li>
-                                                                <NuxtLink to="about.html">About Us</NuxtLink>
+                                                                <NuxtLink to="/">About Us</NuxtLink>
                                                             </li>
                                                             <li>
-                                                                <NuxtLink to="portfolio.html">Portfolio</NuxtLink>
+                                                                <NuxtLink to="/">Portfolio</NuxtLink>
                                                             </li>
                                                             <li>
-                                                                <NuxtLink to="portfolio-2.html">Portfolio - 02</NuxtLink>
+                                                                <NuxtLink to="/">Portfolio - 02</NuxtLink>
                                                             </li>
                                                             <li>
-                                                                <NuxtLink to="portfolio-details.html">Portfolio Details
+                                                                <NuxtLink to="/">Portfolio Details
                                                                 </NuxtLink>
                                                             </li>
                                                             <li>
-                                                                <NuxtLink to="faq.html">FAQ</NuxtLink>
+                                                                <NuxtLink to="/">FAQ</NuxtLink>
                                                             </li>
                                                         </ul>
                                                     </li>
@@ -154,17 +154,17 @@
                                                         <NuxtLink to="#">Inner Pages</NuxtLink>
                                                         <ul>
                                                             <li>
-                                                                <NuxtLink to="locations.html">Google Map Locations
+                                                                <NuxtLink to="/">Google Map Locations
                                                                 </NuxtLink>
                                                             </li>
                                                             <li>
-                                                                <NuxtLink to="404.html">404</NuxtLink>
+                                                                <NuxtLink to="/">404</NuxtLink>
                                                             </li>
                                                             <li>
-                                                                <NuxtLink to="contact.html">Contact</NuxtLink>
+                                                                <NuxtLink to="/">Contact</NuxtLink>
                                                             </li>
                                                             <li>
-                                                                <NuxtLink to="coming-soon.html">Coming Soon</NuxtLink>
+                                                                <NuxtLink to="/">Coming Soon</NuxtLink>
                                                             </li>
                                                         </ul>
                                                     </li>
@@ -172,21 +172,21 @@
                                                         <NuxtLink to="#">Shop Pages</NuxtLink>
                                                         <ul>
                                                             <li>
-                                                                <NuxtLink to="shop.html">Shop</NuxtLink>
+                                                                <NuxtLink to="/">Shop</NuxtLink>
                                                             </li>
                                                             <li>
-                                                                <NuxtLink to="shop-grid.html">Shop Grid</NuxtLink>
+                                                                <NuxtLink to="/">Shop Grid</NuxtLink>
                                                             </li>
                                                             <li>
-                                                                <NuxtLink to="shop-left-sidebar.html">Shop Left sidebar
+                                                                <NuxtLink to="/">Shop Left sidebar
                                                                 </NuxtLink>
                                                             </li>
                                                             <li>
-                                                                <NuxtLink to="shop-right-sidebar.html">Shop right sidebar
+                                                                <NuxtLink to="/">Shop right sidebar
                                                                 </NuxtLink>
                                                             </li>
                                                             <li>
-                                                                <NuxtLink to="product-details.html">Shop details </NuxtLink>
+                                                                <NuxtLink to="/">Shop details </NuxtLink>
                                                             </li>
                                                         </ul>
                                                     </li>
@@ -194,21 +194,21 @@
                                                         <NuxtLink to="#">Blog Pages</NuxtLink>
                                                         <ul>
                                                             <li>
-                                                                <NuxtLink to="blog.html">News</NuxtLink>
+                                                                <NuxtLink to="/">News</NuxtLink>
                                                             </li>
                                                             <li>
-                                                                <NuxtLink to="blog-grid.html">News Grid</NuxtLink>
+                                                                <NuxtLink to="/">News Grid</NuxtLink>
                                                             </li>
                                                             <li>
-                                                                <NuxtLink to="blog-left-sidebar.html">News Left sidebar
+                                                                <NuxtLink to="/">News Left sidebar
                                                                 </NuxtLink>
                                                             </li>
                                                             <li>
-                                                                <NuxtLink to="blog-right-sidebar.html">News Right sidebar
+                                                                <NuxtLink to="/">News Right sidebar
                                                                 </NuxtLink>
                                                             </li>
                                                             <li>
-                                                                <NuxtLink to="blog-details.html">News details</NuxtLink>
+                                                                <NuxtLink to="/">News details</NuxtLink>
                                                             </li>
                                                         </ul>
                                                     </li>
@@ -220,44 +220,44 @@
                                             <NuxtLink to="/">Cửa Hàng</NuxtLink>
                                             <ul>
                                                 <li>
-                                                    <NuxtLink to="shop.html">Shop</NuxtLink>
+                                                    <NuxtLink to="/">Shop</NuxtLink>
                                                 </li>
                                                 <li>
-                                                    <NuxtLink to="shop-grid.html">Shop Grid</NuxtLink>
+                                                    <NuxtLink to="/">Shop Grid</NuxtLink>
                                                 </li>
                                                 <li>
-                                                    <NuxtLink to="shop-left-sidebar.html">Shop Left sidebar</NuxtLink>
+                                                    <NuxtLink to="/">Shop Left sidebar</NuxtLink>
                                                 </li>
                                                 <li>
-                                                    <NuxtLink to="shop-right-sidebar.html">Shop right sidebar</NuxtLink>
+                                                    <NuxtLink to="/">Shop right sidebar</NuxtLink>
                                                 </li>
                                                 <li>
-                                                    <NuxtLink to="product-details.html">Shop details </NuxtLink>
+                                                    <NuxtLink to="/">Shop details </NuxtLink>
                                                 </li>
                                                 <li>
                                                     <NuxtLink to="#">Other Pages <span class="float-right">>></span>
                                                     </NuxtLink>
                                                     <ul>
                                                         <li>
-                                                            <NuxtLink to="cart.html">Cart</NuxtLink>
+                                                            <NuxtLink to="/">Cart</NuxtLink>
                                                         </li>
                                                         <li>
-                                                            <NuxtLink to="wishlist.html">Wishlist</NuxtLink>
+                                                            <NuxtLink to="/">Wishlist</NuxtLink>
                                                         </li>
                                                         <li>
-                                                            <NuxtLink to="checkout.html">Checkout</NuxtLink>
+                                                            <NuxtLink to="/">Checkout</NuxtLink>
                                                         </li>
                                                         <li>
-                                                            <NuxtLink to="order-tracking.html">Order Tracking</NuxtLink>
+                                                            <NuxtLink to="/">Order Tracking</NuxtLink>
                                                         </li>
                                                         <li>
-                                                            <NuxtLink to="account.html">My Account</NuxtLink>
+                                                            <NuxtLink to="/">My Account</NuxtLink>
                                                         </li>
                                                         <li>
-                                                            <NuxtLink to="login.html">Sign in</NuxtLink>
+                                                            <NuxtLink to="/">Sign in</NuxtLink>
                                                         </li>
                                                         <li>
-                                                            <NuxtLink to="register.html">Register</NuxtLink>
+                                                            <NuxtLink to="/">Register</NuxtLink>
                                                         </li>
                                                     </ul>
                                                 </li>
@@ -267,13 +267,13 @@
                                             <NuxtLink to="/">Portfolio</NuxtLink>
                                             <ul>
                                                 <li>
-                                                    <NuxtLink to="portfolio.html">Portfolio</NuxtLink>
+                                                    <NuxtLink to="/">Portfolio</NuxtLink>
                                                 </li>
                                                 <li>
-                                                    <NuxtLink to="portfolio-2.html">Portfolio - 02</NuxtLink>
+                                                    <NuxtLink to="/">Portfolio - 02</NuxtLink>
                                                 </li>
                                                 <li>
-                                                    <NuxtLink to="portfolio-details.html">Portfolio Details</NuxtLink>
+                                                    <NuxtLink to="/">Portfolio Details</NuxtLink>
                                                 </li>
                                             </ul>
                                         </li>
@@ -281,19 +281,19 @@
                                             <NuxtLink to="/">News</NuxtLink>
                                             <ul>
                                                 <li>
-                                                    <NuxtLink to="blog.html">News</NuxtLink>
+                                                    <NuxtLink to="/">News</NuxtLink>
                                                 </li>
                                                 <li>
-                                                    <NuxtLink to="blog-grid.html">News Grid</NuxtLink>
+                                                    <NuxtLink to="/">News Grid</NuxtLink>
                                                 </li>
                                                 <li>
-                                                    <NuxtLink to="blog-left-sidebar.html">News Left sidebar</NuxtLink>
+                                                    <NuxtLink to="/">News Left sidebar</NuxtLink>
                                                 </li>
                                                 <li>
-                                                    <NuxtLink to="blog-right-sidebar.html">News Right sidebar</NuxtLink>
+                                                    <NuxtLink to="/">News Right sidebar</NuxtLink>
                                                 </li>
                                                 <li>
-                                                    <NuxtLink to="blog-details.html">News details</NuxtLink>
+                                                    <NuxtLink to="/">News details</NuxtLink>
                                                 </li>
                                             </ul>
                                         </li>

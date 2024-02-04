@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title-area text-center">
-                        <h1 class="section-title section-title-border">Sản phẩm Hot</h1>
+                        <h1 class="section-title section-title-border text-capitalize">{{ title }}</h1>
                     </div>
                 </div>
             </div>
@@ -25,8 +25,8 @@
                     <button ref="btnNextRef" class="slick-next slick-arrow">
                         <i class="icon-arrow-right" alt="Arrow Icon"></i>
                     </button>
-                    <SwiperSlide v-for="item in 10" :key="item">
-                        <Product />
+                    <SwiperSlide v-for="(item, index) in items" :key="index">
+                        <Product :data="item" />
                     </SwiperSlide>
 
                 </Swiper>
@@ -35,6 +35,8 @@
     </div>
 </template>
 <script setup>
+const props = defineProps(["title", "items"])
+
 const btnPrevtRef = ref(null);
 const btnNextRef = ref(null);
 </script>

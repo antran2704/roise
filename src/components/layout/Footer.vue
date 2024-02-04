@@ -8,11 +8,11 @@
                             <h4 class="footer-title">My Accoout</h4>
                             <div class="footer-menu">
                                 <ul>
-                                    <li><a href="account.html">My account</a></li>
-                                    <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="contact.html">Contact us</a></li>
-                                    <li><a href="cart.html">Shopping Cart</a></li>
-                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                    <li><a href="/">My account</a></li>
+                                    <li><a href="/">Checkout</a></li>
+                                    <li><a href="/">Contact us</a></li>
+                                    <li><a href="/">Shopping Cart</a></li>
+                                    <li><a href="/">Wishlist</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -22,11 +22,11 @@
                             <h4 class="footer-title">Quick Links</h4>
                             <div class="footer-menu">
                                 <ul>
-                                    <li><a href="locations.html">Store Location</a></li>
-                                    <li><a href="order-tracking.html">Orders Tracking</a></li>
-                                    <li><a href="product-details.html">Size Guide</a></li>
-                                    <li><a href="account.html">My account</a></li>
-                                    <li><a href="faq.html">FAQs</a></li>
+                                    <li><a href="/">Store Location</a></li>
+                                    <li><a href="/">Orders Tracking</a></li>
+                                    <li><a href="/">Size Guide</a></li>
+                                    <li><a href="/">My account</a></li>
+                                    <li><a href="/">FAQs</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -36,11 +36,11 @@
                             <h4 class="footer-title">Information</h4>
                             <div class="footer-menu">
                                 <ul>
-                                    <li><a href="contact.html">Privacy Page</a></li>
-                                    <li><a href="about.html">About us</a></li>
-                                    <li><a href="contact.html">Careers</a></li>
-                                    <li><a href="faq.html">Delivery Inforamtion</a></li>
-                                    <li><a href="contact.html">Term & Conditions</a></li>
+                                    <li><a href="/">Privacy Page</a></li>
+                                    <li><a href="/">About us</a></li>
+                                    <li><a href="/">Careers</a></li>
+                                    <li><a href="/">Delivery Inforamtion</a></li>
+                                    <li><a href="/">Term & Conditions</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -50,11 +50,11 @@
                             <h4 class="footer-title">Customer Service</h4>
                             <div class="footer-menu">
                                 <ul>
-                                    <li><a href="product-details.html">Shipping Policy</a></li>
-                                    <li><a href="contact.html">Help & Contact Us</a></li>
-                                    <li><a href="account.html">Returns & Refunds</a></li>
-                                    <li><a href="shop.html">Online Stores</a></li>
-                                    <li><a href="contact.html">Terms and Conditions</a></li>
+                                    <li><a href="/">Shipping Policy</a></li>
+                                    <li><a href="/">Help & Contact Us</a></li>
+                                    <li><a href="/">Returns & Refunds</a></li>
+                                    <li><a href="/">Online Stores</a></li>
+                                    <li><a href="/">Terms and Conditions</a></li>
                                 </ul>
                             </div>
                         </div>

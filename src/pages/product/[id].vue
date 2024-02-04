@@ -23,7 +23,7 @@
         </Head>
 
 
-        <Breadcrumb title="Sản phẩm" :list="[{ label: 'Home', path: '/' }, { label: product.Name }]" />
+        <Breadcrumb title="Sản phẩm" :list="[{ label: 'Trang Chủ', path: '/' }, { label: product.Name }]" />
 
         <!-- SHOP DETAILS AREA START -->
         <div class="ltn__shop-details-area pb-70">
@@ -34,8 +34,7 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div @click="onClickFancybox" class="ltn__shop-details-large-img">
-                                        <img :src="currentImage" alt="Product" title="Product" loading="lazy" width="auto"
-                                            height="auto">
+                                        <Image :src="currentImage" :alt="product.Name" title="thumbnail" />
 
                                         <div
                                             class="ltn__shop-details-gallery-count d-flex justify-content-center align-items-center">
@@ -56,8 +55,8 @@
                                                     currentImage = image
                                                     onSlideChange();
                                                 }">
-                                                <img :class="{ isActive: image === currentImage }" :src="image"
-                                                    alt="Product" title="Product" loading="lazy" width="auto" height="auto">
+                                                <Image :class="{ isActive: image === currentImage }" :src="image"
+                                                :alt="product.Name" :title="product.Name" />
                                             </SwiperSlide>
                                         </Swiper>
                                     </div>
@@ -262,7 +261,7 @@
                 </div>
             </div>
         </div>
-        <SlideProduct />
+        <SlideProduct title="Sản phẩm khác" :items="data"/>
         <Brand />
     </div>
 </template>
@@ -271,7 +270,7 @@ const runtimeConfig = useRuntimeConfig();
 const route = useRoute();
 const router = useRouter();
 const id = route.params.id;
-const { data: product, pending, error, refresh } = await useFetch(`${runtimeConfig.public.apiEndpont}/products/${id}`)
+const { data: product, pending } = await useFetch(`${runtimeConfig.public.apiEndpont}/products/${id}`)
 
 if (!product.value && !pending.value) {
     router.push("/404");
@@ -280,10 +279,11 @@ if (!product.value && !pending.value) {
 const gallery = product.value.Gallery;
 
 const isShowFancybox = ref(false);
-
 const currentImage = ref(gallery[0]);
 const currentIndexSlide = ref(0);
 const swiper = ref(null);
+
+const { data } = await useAsyncData(() => $fetch(`${runtimeConfig.public.apiEndpont}/products`))
 
 const getRef = (swiperInstance) => {
     swiper.value = swiperInstance

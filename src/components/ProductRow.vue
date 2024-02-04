@@ -4,13 +4,17 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title-area text-center">
-                        <h1 class="section-title section-title-border">Sản Phẩm Nổi Bật</h1>
+                        <h1 class="section-title section-title-border">{{ title }}</h1>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <Product v-for="item in 6" col="col-lg-3 col-md-4 col-sm-6 col-6" :key="item" />
+                    <Product v-for="(item, index) in items" :key="index" :data="item" col="col-lg-3 col-md-4 col-sm-6 col-6" />
             </div>
         </div>
     </div>
 </template>
+
+<script setup>
+const props = defineProps(["title", "items"])
+</script>

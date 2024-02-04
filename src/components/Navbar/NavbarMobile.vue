@@ -22,10 +22,10 @@
                         <li>
                             <a href="/">Trang Chủ</a>
                             <!-- <ul class="sub-menu">
-                                    <li><a href="index.html">Home Style - 01</a></li>
-                                    <li><a href="index-2.html">Home Style - 02</a></li>
-                                    <li><a href="index-3.html">Home Style - 03</a></li>
-                                    <li><a href="index-4.html">Home Style - 04</a></li>
+                                    <li><a href="/">Home Style - 01</a></li>
+                                    <li><a href="/">Home Style - 02</a></li>
+                                    <li><a href="/">Home Style - 03</a></li>
+                                    <li><a href="/">Home Style - 04</a></li>
                                 </ul> -->
                         </li>
                         <li>
@@ -34,42 +34,42 @@
                         <li>
                             <a href="/">Cửa Hàng</a>
                             <ul class="sub-menu">
-                                <li><a href="shop.html">Shop</a></li>
-                                <li><a href="shop-grid.html">Shop Grid</a></li>
-                                <li><a href="shop-left-sidebar.html">Shop Left sidebar</a></li>
-                                <li><a href="shop-right-sidebar.html">Shop right sidebar</a></li>
-                                <li><a href="product-details.html">Shop details </a></li>
-                                <li><a href="cart.html">Cart</a></li>
-                                <li><a href="wishlist.html">Wishlist</a></li>
-                                <li><a href="checkout.html">Checkout</a></li>
-                                <li><a href="order-tracking.html">Order Tracking</a></li>
-                                <li><a href="account.html">My Account</a></li>
-                                <li><a href="login.html">Sign in</a></li>
-                                <li><a href="register.html">Register</a></li>
+                                <li><a href="/">Shop</a></li>
+                                <li><a href="/">Shop Grid</a></li>
+                                <li><a href="/">Shop Left sidebar</a></li>
+                                <li><a href="/">Shop right sidebar</a></li>
+                                <li><a href="/">Shop details </a></li>
+                                <li><a href="/">Cart</a></li>
+                                <li><a href="/">Wishlist</a></li>
+                                <li><a href="/">Checkout</a></li>
+                                <li><a href="/">Order Tracking</a></li>
+                                <li><a href="/">My Account</a></li>
+                                <li><a href="/">Sign in</a></li>
+                                <li><a href="/">Register</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="/">News</a>
                             <ul class="sub-menu">
-                                <li><a href="blog.html">News</a></li>
-                                <li><a href="blog-grid.html">News Grid</a></li>
-                                <li><a href="blog-left-sidebar.html">News Left sidebar</a></li>
-                                <li><a href="blog-right-sidebar.html">News Right sidebar</a></li>
-                                <li><a href="blog-details.html">News details</a></li>
+                                <li><a href="/">News</a></li>
+                                <li><a href="/">News Grid</a></li>
+                                <li><a href="/">News Left sidebar</a></li>
+                                <li><a href="/">News Right sidebar</a></li>
+                                <li><a href="/">News details</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="/">Pages</a>
                             <ul class="sub-menu">
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="portfolio.html">Portfolio</a></li>
-                                <li><a href="portfolio-2.html">Portfolio - 02</a></li>
-                                <li><a href="portfolio-details.html">Portfolio Details</a></li>
-                                <li><a href="faq.html">FAQ</a></li>
-                                <li><a href="locations.html">Google Map Locations</a></li>
-                                <li><a href="404.html">404</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                                <li><a href="coming-soon.html">Coming Soon</a></li>
+                                <li><a href="/">About Us</a></li>
+                                <li><a href="/">Portfolio</a></li>
+                                <li><a href="/">Portfolio - 02</a></li>
+                                <li><a href="/">Portfolio Details</a></li>
+                                <li><a href="/">FAQ</a></li>
+                                <li><a href="/">Google Map Locations</a></li>
+                                <li><a href="/">404</a></li>
+                                <li><a href="/">Contact</a></li>
+                                <li><a href="/">Coming Soon</a></li>
                             </ul>
                         </li>
                         <li>

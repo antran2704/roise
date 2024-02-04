@@ -37,7 +37,7 @@
                                                                 eiusmod tempor incididunt ut labore.</p>
                                                         </div>
                                                         <div class="btn-wrapper">
-                                                            <a href="service.html" class="theme-btn-1 btn btn-round">Shop
+                                                            <a href="/" class="theme-btn-1 btn btn-round">Shop
                                                                 Now</a>
                                                         </div>
                                                     </div>

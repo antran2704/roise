@@ -21,7 +21,7 @@
             <ul class="scroll fancybox_gallery">
                 <li v-for="(image, index) in prop.gallery" :key="index" @click="() => handleClickImage(index)"
                     class="fancybox_gallery-item" :class="{ isActive: currentIndex === index }">
-                    <img :src="image">
+                    <Image :src="image" />
                 </li>
             </ul>
         </div>
