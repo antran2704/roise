@@ -5092,7 +5092,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 ---------------------------------------------------- */
 @media (max-width: 1199px) {
   .widget {
-    padding: 35px 20px 40px 20px;
+    /* padding: 35px 20px 40px 20px; */
   }
   .top-rated-product-img {
     max-width: 70px;
@@ -9385,7 +9385,13 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 @media (max-width: 767px) {
   .ltn__shop-options ul li {
     margin: 5px 0;
+    width: 100%;
   }
+
+  .ltn__shop-options .ltn__search-widget {
+    width: 100%;
+  }
+
   .showing-product-number span {
     font-size: 16px;
   }
@@ -16496,7 +16502,9 @@ input.cart-plus-minus-box {
     justify-content: space-between;
   }
 }
-
+.h-full {
+  height: 100%;
+}
 .btn_back {
   font-size: 20px;
   font-weight: 600;

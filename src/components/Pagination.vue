@@ -12,14 +12,13 @@
         </li>
 
         <li v-if="props.totalItems > props.pageSize" v-for="page in totalPagesShow.slice(start, end)"
-            class="pagination_item" :class="{active: page === currentPage}">
+            class="pagination_item" :class="{ active: page === currentPage }">
 
             <button :key="page" @click="() => onClick(page)">
                 {{ page }}
             </button>
         </li>
-        <li :class="[currentPage >= pageCount && 'pagination_arrow-disable']"
-            class="pagination_arrow">
+        <li :class="[currentPage >= pageCount && 'pagination_arrow-disable']" class="pagination_arrow">
             <button class="pagination_arrow-prev">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                     class="pagination_arrow-icon">
@@ -60,14 +59,7 @@ const showItems = ref(5);
 const start = ref(props.currentPage);
 const end = ref(showItems.value);
 
-// const onClick = (page) => {
-    
-// }
-
 const pages = Math.ceil(props.totalItems / props.pageSize);
-if (props.currentPage > pages) {
-    navigateTo("/404");
-}
 
 const handleTotalPages = () => {
     let totalPages = [];

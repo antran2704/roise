@@ -10,7 +10,7 @@
             </div>
             <div class="row">
                 <Product v-if="!isLoading" v-for="(item, index) in items" :key="index" :data="item"
-                    col="col-lg-3 col-md-4 col-sm-6 col-6" />
+                    col="col-lg-3 col-md-4 col-sm-6 col-6" :isLazy="true"/>
 
                 <ProductLoading v-if="isLoading" v-for="(item, index) in 8" :key="index"
                     col="col-lg-3 col-md-4 col-sm-6 col-6 my-2" />

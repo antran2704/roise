@@ -25,8 +25,8 @@
                     <button ref="btnNextRef" class="slick-next slick-arrow">
                         <i class="icon-arrow-right" alt="Arrow Icon"></i>
                     </button>
-                    <SwiperSlide v-if="!isLoading" v-for="(item, index) in items" :key="index">
-                        <Product :data="item" />
+                    <SwiperSlide v-if="!isLoading" v-for="(item, index) in items.slice(0, 12)" :key="index">
+                        <Product :data="item"/>
                     </SwiperSlide>
                     <SwiperSlide v-if="isLoading" v-for="(item, index) in 4" :key="index" >
                         <ProductLoading />

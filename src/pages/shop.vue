@@ -38,18 +38,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="ltn__pagination-area text-center">
-                        <div class="ltn__pagination ltn__pagination-2">
-                            <ul>
-                                <li><a href="#"><i class="icon-arrow-left"></i></a></li>
-                                <li><a href="#">1</a></li>
-                                <li class="active"><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">...</a></li>
-                                <li><a href="#"><i class="icon-arrow-right"></i></a></li>
-                            </ul>
-                        </div>
-                    </div> -->
 
                     <Pagination v-if="products.length > PAGE_SIZE" :currentPage="current_page" :totalItems="products.length"
                         :pageSize="PAGE_SIZE" :onClick="onClick" />
@@ -73,7 +61,7 @@ const showProducts = ref([]);
 const products = ref([])
 const isLoading = ref(true);
 const searchText = ref(query.search ? query.search : null);
-const PAGE_SIZE = 2;
+const PAGE_SIZE = 4;
 const current_page = ref(query.page ? Number(query.page) : 1);
 
 const onClick = (page) => {

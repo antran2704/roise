@@ -3,7 +3,8 @@
     <div :class="col">
         <NuxtLink :to="`${LINK}/${data._id}`" class="ltn__product-item text-center">
             <div class="product-img">
-                <Image :src="data.Picture" :alt="data.Name" :title="data.Name" />
+                <Image v-if="isLazy" :src="data.Picture" :alt="data.Name" :title="data.Name" />
+                <img v-if="!isLazy" :src="data.Picture" :alt="data.Name" :title="data.Name" width="auto" height="auto" loading="lazy"/>
                 <div class="product-badge">
                     <ul>
                         <li class="badge-2">10%</li>
@@ -28,6 +29,6 @@
 </template>
 
 <script setup>
-const props = defineProps(["col", "data"])
+const props = defineProps(["col", "data", "isLazy"])
 const LINK = "/product"
 </script>
