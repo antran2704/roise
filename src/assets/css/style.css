@@ -509,6 +509,8 @@ body {
   font-size: 16px;
   font-family: var(--ltn__body-font);
   line-height: 1.8;
+  overflow-x: hidden;
+  overflow: overlay;
   margin: 0 auto;
 }
 
