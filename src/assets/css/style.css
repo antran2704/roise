@@ -16425,7 +16425,10 @@ input.cart-plus-minus-box {
   transition: all linear 0.2s;
 }
 
-.pagination_arrow {
+.pagination_item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .pagination_arrow.pagination_arrow-disable {
@@ -16433,36 +16436,15 @@ input.cart-plus-minus-box {
   pointer-events: none;
 }
 
-.pagination_item button,
-.pagination_arrow button {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-}
-
-.pagination_item button:hover,
-.pagination_arrow button:hover {
+.pagination_item:hover,
+.pagination_arrow:hover {
   color: var(--white);
   background-color: var(--ltn__secondary-color);
 }
 
-.pagination_item.active button {
+.pagination_item.active {
   color: var(--white);
   background-color: var(--ltn__secondary-color);
-}
-
-.pagination_item:hover .pagination_arrow-icon {
-}
-
-.pagination_arrow-icon {
-}
-
-.pagination_arrow-prev {
-}
-
-.pagination_arrow-next {
 }
 
 @keyframes loadingSkelaton {

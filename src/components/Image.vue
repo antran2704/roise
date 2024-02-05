@@ -17,7 +17,6 @@ const handleErrorImage = () => {
 const onLoad = () => {
     const image = new Image();
     image.src = props.src;
-    console.log("load")
     
     image.onload = () => {
         if(image.complete) {
