@@ -82,6 +82,7 @@ const onClick = (page) => {
     router.replace({ path: route.fullPath, query: { ...route.query, page } })
     showProducts.value = products.value.slice((page - 1) * PAGE_SIZE, PAGE_SIZE * page)
     current_page.value = page;
+    scroll({top: 400, behavior: "smooth"})
 }
 
 const debounce = (callback, timer) => {

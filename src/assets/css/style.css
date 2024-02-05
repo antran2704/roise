@@ -6606,6 +6606,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 }
 .ltn__utilize-menu-search-form button {
   background-color: transparent;
+  color: var(--black-2);
   position: absolute;
   right: 0;
   top: 50%;
@@ -6796,6 +6797,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 }
 .ltn__utilize-menu-head .ltn__utilize-close {
   background-color: transparent;
+  color: var(--black-2);
   font-size: 30px;
   padding: 0 15px;
 }

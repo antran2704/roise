@@ -33,4 +33,9 @@ export default defineNuxtConfig({
       rootMargin: "80px",
     },
   },
+  router: {
+    options: {
+      scrollBehaviorType: "smooth",
+    },
+  },
 });
