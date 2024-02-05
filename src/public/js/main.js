@@ -955,43 +955,43 @@
         /* --------------------------------------------------------
             27. Brand Logo
         --------------------------------------------------------- */
-        if($('.ltn__brand-logo-active').length){
-            $('.ltn__brand-logo-active').slick({
-                rtl: false,
-                arrows: false,
-                dots: false,
-                infinite: true,
-                speed: 300,
-                slidesToShow: 6,
-                slidesToScroll: 1,
-                prevArrow: '<a class="slick-prev"><i class="icon-arrow-left" alt="Arrow Icon"></i></a>',
-                nextArrow: '<a class="slick-next"><i class="icon-arrow-right" alt="Arrow Icon"></i></a>',
-                responsive: [
-                    {
-                        breakpoint: 992,
-                        settings: {
-                            slidesToShow: 4,
-                            slidesToScroll: 1
-                        }
-                    },
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 1,
-                            arrows: false,
-                        }
-                    },
-                    {
-                        breakpoint: 580,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 1
-                        }
-                    }
-                ]
-            });
-        };
+        // if($('.ltn__brand-logo-active').length){
+        //     $('.ltn__brand-logo-active').slick({
+        //         rtl: false,
+        //         arrows: false,
+        //         dots: false,
+        //         infinite: true,
+        //         speed: 300,
+        //         slidesToShow: 6,
+        //         slidesToScroll: 1,
+        //         prevArrow: '<a class="slick-prev"><i class="icon-arrow-left" alt="Arrow Icon"></i></a>',
+        //         nextArrow: '<a class="slick-next"><i class="icon-arrow-right" alt="Arrow Icon"></i></a>',
+        //         responsive: [
+        //             {
+        //                 breakpoint: 992,
+        //                 settings: {
+        //                     slidesToShow: 4,
+        //                     slidesToScroll: 1
+        //                 }
+        //             },
+        //             {
+        //                 breakpoint: 768,
+        //                 settings: {
+        //                     slidesToShow: 3,
+        //                     slidesToScroll: 1,
+        //                     arrows: false,
+        //                 }
+        //             },
+        //             {
+        //                 breakpoint: 580,
+        //                 settings: {
+        //                     slidesToShow: 2,
+        //                     slidesToScroll: 1
+        //                 }
+        //             }
+        //         ]
+        //     });
+        // };
 
         /* --------------------------------------------------------
             28. Blog Gallery (Blog Page )

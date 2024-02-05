@@ -3,6 +3,7 @@
         <Title>{{ title }}</Title>
         <Link rel="canonical" :href="canonical" />
         <Meta name="description" :content="description" />
+        <Meta name="theme-color" content="#ffffff" />
 
         <!-- Open Graph / Facebook -->
         <Meta property="og:type" content="website" />
@@ -21,5 +22,5 @@
 </template>
 
 <script setup>
-    const props = defineProps(["canonical", "title", "description", "picture"]);
+const props = defineProps(["canonical", "title", "description", "picture"]);
 </script>

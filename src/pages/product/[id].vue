@@ -1,11 +1,11 @@
 <template>
     <Loading v-if="pending || !product" />
     <div v-if="!pending && product">
-        <Seo :title="product.Name" :description="product.Overview"
-            :canonical="`${runtimeConfig.domain}/products/${product._id}`" :picture="product.Picture"/>
+        <Seo :title="product.name" :description="product.overview"
+            :canonical="`${runtimeConfig.public.domain}/products/${product.id}`" :picture="product.Picture"/>
 
 
-        <Breadcrumb title="Sản phẩm" :list="[{ label: 'Trang Chủ', path: '/' }, { label: product.Name }]" />
+        <Breadcrumb title="Sản phẩm" :list="[{ label: 'Trang Chủ', path: '/' }, { label: 'Shop', path: '/shop' }, { label: product.name }]" />
 
         <!-- SHOP DETAILS AREA START -->
         <div class="ltn__shop-details-area pb-70">
@@ -16,10 +16,10 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div @click="onClickFancybox" class="ltn__shop-details-large-img">
-                                        <img :src="currentImage" :alt="product.Name" title="thumbnail" loading="lazy"
+                                        <Image :isLazy="false" :src="currentImage" :alt="product.name" title="thumbnail" loading="lazy"
                                             width="auto" height="auto" />
 
-                                        <div
+                                        <div v-if="gallery.length > 0"
                                             class="ltn__shop-details-gallery-count d-flex justify-content-center align-items-center">
                                             <p class="ltn__shop-details-gallery-number">{{ currentIndexSlide + 1 }}</p>
                                             <p class="ltn__shop-details-gallery-number">/</p>
@@ -27,7 +27,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="ltn__shop-details-img-gallery ltn__shop-details-img-gallery-2">
+                                    <div v-if="gallery.length > 0" class="ltn__shop-details-img-gallery ltn__shop-details-img-gallery-2">
                                         <Swiper @swiper="getRef" :modules="[SwiperNavigation]" :slides-per-view="3"
                                             :space-between="10" :navigation="{
                                                 enabled: true,
@@ -39,34 +39,34 @@
                                                     onSlideChange();
                                                 }">
                                                 <Image :class="{ isActive: image === currentImage }" :src="image"
-                                                    :alt="product.Name" :title="product.Name" />
+                                                    :alt="product.name" :title="product.name" />
                                             </SwiperSlide>
                                         </Swiper>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="modal-product-info shop-details-info">
-                                        <h3 class="mb-10">{{ product.Name }}</h3>
+                                        <h3 class="mb-10">{{ product.name }}</h3>
 
                                         <div class="modal-product-brief d-flex align-items-center mb-10 gap-2">
                                             <p class="product_price-title product_title">Hãng:</p>
                                             <p class="product_text">
-                                                {{ product.Brand ? product.Brand : "Đang cập nhật" }}
+                                                {{ product.brand ? product.brand : "Đang cập nhật" }}
                                             </p>
                                         </div>
 
                                         <div class="product_price-wrap mb-10">
                                             <div class="product_price">
-                                                <p class="product_price-title product_title"> Giá bán sỉ:</p>
+                                                <p class="product_price-title product_title text-nowrap"> Giá bán sỉ:</p>
                                                 <p class="product_price-value">
-                                                    {{ product.WholesalePrice ? `${formatBigNumber(product.WholesalePrice)}
+                                                    {{ product.wholesalePrice ? `${formatBigNumber(product.wholesalePrice)}
                                                                                                         ${CURRENCY_CHARACTER}` : "Đang cập nhật" }}
                                                 </p>
                                             </div>
                                             <div class="product_price">
-                                                <p class="product_price-title product_title"> Giá bán lẻ:</p>
+                                                <p class="product_price-title product_title text-nowrap"> Giá bán lẻ:</p>
                                                 <p class="product_price-value">
-                                                    {{ product.SpecialPrice ? `${formatBigNumber(product.SpecialPrice)}
+                                                    {{ product.specialPrice ? `${formatBigNumber(product.specialPrice)}
                                                                                                         ${CURRENCY_CHARACTER}` : "Đang cập nhật" }}
                                                 </p>
                                             </div>
@@ -74,33 +74,9 @@
                                         <div class="modal-product-brief mb-10">
                                             <p class="product_price-title product_title">Tổng quan sản phẩm:</p>
                                             <p class="product_text">
-                                                {{ product.Overview }}
+                                                {{ product.overview }}
                                             </p>
                                         </div>
-
-                                        <!-- <div class="modal-product-meta ltn__product-details-menu-1 mb-30">
-                                            <ul>
-                                                <li><strong>SKU:</strong> <span>12345</span></li>
-                                                <li>
-                                                    <strong>Categories:</strong>
-                                                    <span>
-                                                        <a href="#">Flower</a>
-                                                    </span>
-                                                </li>
-                                                <li>
-                                                    <strong>Tags:</strong>
-                                                    <span>
-                                                        <a href="#">Love</a>
-                                                        <a href="#">Flower</a>
-                                                        <a href="#">Heart</a>
-                                                    </span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="ltn__safe-checkout d-none">
-                                            <h5>Guaranteed Safe Checkout</h5>
-                                            <img src="/img/icons/payment-2.png" alt="Payment Image">
-                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -110,7 +86,7 @@
             </div>
         </div>
 
-        <FancyBox v-if="isShowFancybox" :gallery="gallery" :currentIndex="currentIndexSlide" :onClose="onClickFancybox" />
+        <FancyBox v-if="isShowFancybox && gallery.length > 0" :gallery="gallery" :currentIndex="currentIndexSlide" :onClose="onClickFancybox" />
         <!-- SHOP DETAILS AREA END -->
         <!-- SHOP DETAILS TAB AREA START -->
         <div class="ltn__shop-details-tab-area pb-60">
@@ -127,10 +103,10 @@
                             </div>
                             <div class="tab-content">
                                 <div class="tab-pane fade active show" id="liton_tab_details_1_1">
-                                    <div class="ltn__shop-details-tab-content-inner text-center">
+                                    <div class="ltn__shop-details-tab-content-inner">
                                         <ShowMore :maxHeight="120">
                                             <p>
-                                                {{ product.Description }}
+                                                {{ product.description }}
                                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                                                 tempor
                                                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
@@ -171,74 +147,6 @@
                                             tenetur quae sint voluptatem voluptate inventore.</p>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="liton_tab_details_1_5">
-                                    <div class="ltn__shop-details-tab-content-inner">
-
-                                        <div class="table-1 mb-20">
-                                            <table class="">
-                                                <tbody>
-                                                    <tr>
-                                                        <th>SIZE</th>
-                                                        <th>XS</th>
-                                                        <th>S</th>
-                                                        <th>S/M</th>
-                                                        <th>M</th>
-                                                        <th>M/L</th>
-                                                        <th>L</th>
-                                                        <th>XL</th>
-                                                    </tr>
-                                                    <tr data-bs-region="uk">
-                                                        <th>UK</th>
-                                                        <td>4</td>
-                                                        <td>6 - 8</td>
-                                                        <td>6 - 10</td>
-                                                        <td>10 - 12</td>
-                                                        <td>12 - 16</td>
-                                                        <td>14 - 16</td>
-                                                        <td>18</td>
-                                                    </tr>
-                                                    <tr data-bs-region="eur">
-                                                        <th>
-                                                            <span class="mobile-show">EUR</span><span
-                                                                class="mobile-none">EUROPE</span>
-                                                        </th>
-                                                        <td>32</td>
-                                                        <td>34 - 36</td>
-                                                        <td>34 - 38</td>
-                                                        <td>38 - 40</td>
-                                                        <td>40 - 44</td>
-                                                        <td>42 - 44</td>
-                                                        <td>46</td>
-                                                    </tr>
-                                                    <tr data-bs-region="usa">
-                                                        <th>
-                                                            <span>USA/</span><span class="mobile-none">CANADA</span><span
-                                                                class="mobile-show"> CA</span>
-                                                        </th>
-                                                        <td>0</td>
-                                                        <td>2 - 4</td>
-                                                        <td>2 - 6</td>
-                                                        <td>6 - 8</td>
-                                                        <td>8 - 12</td>
-                                                        <td>10 - 12</td>
-                                                        <td>14</td>
-                                                    </tr>
-                                                    <tr data-bs-region="aus">
-                                                        <th>AUS / NZ</th>
-                                                        <td>4</td>
-                                                        <td>6 - 8</td>
-                                                        <td>6 - 10</td>
-                                                        <td>10 - 12</td>
-                                                        <td>12 - 16</td>
-                                                        <td>14 - 16</td>
-                                                        <td>18</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -255,12 +163,13 @@ const route = useRoute();
 const router = useRouter();
 const id = route.params.id;
 const { data: product, pending } = await useFetch(`${runtimeConfig.public.apiEndpoint}/products/${id}`)
+// const { data: product, pending } = await useFetch(`${runtimeConfig.public.apiEndpoint}/product/${id}`)
 
 if (!product.value && !pending.value) {
     router.push("/404");
 }
 
-const gallery = product.value ? product.value.Gallery : [];
+const gallery = product.value ? product.value.gallery : [];
 
 const isShowFancybox = ref(false);
 const currentImage = ref(gallery[0]);
@@ -268,6 +177,7 @@ const currentIndexSlide = ref(0);
 const swiper = ref(null);
 
 const { data } = await useAsyncData(() => $fetch(`${runtimeConfig.public.apiEndpoint}/products`))
+// const { data } = await useAsyncData(() => $fetch(`${runtimeConfig.public.apiEndpoint}/product`))
 
 const getRef = (swiperInstance) => {
     swiper.value = swiperInstance

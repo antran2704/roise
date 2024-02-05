@@ -6,13 +6,14 @@
     <!-- PRODUCT DETAILS AREA START -->
     <div class="ltn__product-area ">
         <div class="container">
-            <div class="row">
+            <div v-if="!message" class="row">
                 <div class="col-12 order-lg-2 mb-100">
                     <div class="ltn__shop-options">
                         <ul>
                             <li>
                                 <div class="showing-product-number text-right">
-                                    <span>Showing 9 of 20 results</span>
+                                    <span>Showing {{ (current_page * PAGE_SIZE) > products.length ? products.length :
+                                        current_page * PAGE_SIZE }} of {{ products.length }} results</span>
                                 </div>
                             </li>
                             <li>
@@ -39,8 +40,15 @@
                         </div>
                     </div>
 
-                    <Pagination v-if="products.length > PAGE_SIZE" :currentPage="current_page" :totalItems="products.length"
-                        :pageSize="PAGE_SIZE" :onClick="onClick" />
+                    <Pagination v-if="products.length > PAGE_SIZE && showProducts.length > 0" :currentPage="current_page"
+                        :totalItems="products.length" :pageSize="PAGE_SIZE" :onClick="onClick" />
+                </div>
+            </div>
+            <div v-if="message" class="row">
+                <div class="col-12">
+                    <div class="section-title-area text-center">
+                        <h1 class="section-title section-title-border">{{ message }}</h1>
+                    </div>
                 </div>
             </div>
         </div>
@@ -61,10 +69,16 @@ const showProducts = ref([]);
 const products = ref([])
 const isLoading = ref(true);
 const searchText = ref(query.search ? query.search : null);
-const PAGE_SIZE = 4;
+const PAGE_SIZE = 6;
 const current_page = ref(query.page ? Number(query.page) : 1);
 
+const message = ref(null);
+
 const onClick = (page) => {
+    if (message.value) {
+        message.value = null;
+    }
+
     router.replace({ path: route.fullPath, query: { ...route.query, page } })
     showProducts.value = products.value.slice((page - 1) * PAGE_SIZE, PAGE_SIZE * page)
     current_page.value = page;
@@ -81,16 +95,30 @@ const debounce = (callback, timer) => {
 }
 
 const getProducts = async () => {
+    isLoading.value = true;
+
+    if (message.value) {
+        message.value = null;
+    }
+
+
     try {
         const res = await $fetch(`${runtimeConfig.public.apiEndpoint}/products`);
+        // const res = await $fetch(`${runtimeConfig.public.apiEndpoint}/product`);
         if (res) {
             products.value = res;
+            const items = res.slice((current_page.value - 1) * PAGE_SIZE, PAGE_SIZE * current_page.value);
+
+            if (items.length <= 0) {
+                message.value = "Không tìm thấy sản phẩm";
+            }
+
             showProducts.value = res.slice((current_page.value - 1) * PAGE_SIZE, PAGE_SIZE * current_page.value);
         }
     } catch (error) {
-        console.log(error)
         products.value = []
         showProducts.value = []
+        message.value = "Không tìm thấy sản phẩm";
     }
 
     isLoading.value = false;
@@ -98,8 +126,8 @@ const getProducts = async () => {
 
 const onSearch = (timmer) => {
     if (!searchText.value) {
-        debounce(() =>getProducts());
-        router.replace({ path: route.fullPath})
+        debounce(() => getProducts());
+        router.replace({ path: route.fullPath })
         current_page.value = 1;
         return;
     }
@@ -112,18 +140,32 @@ const onSearch = (timmer) => {
 const handleSearch = async (search) => {
     isLoading.value = true;
 
+    if (message.value) {
+        message.value = null;
+    }
+
     try {
 
         const res = await $fetch(`${runtimeConfig.public.apiEndpoint}/products?search=${search}`);
+        // const res = await $fetch(`${runtimeConfig.public.apiEndpoint}/product/search`, {
+        //     method: 'POST',
+        //     body: { searchText: search }
+        // });
 
         if (res) {
             products.value = res;
-            showProducts.value = res.slice((current_page.value - 1) * PAGE_SIZE, PAGE_SIZE * current_page.value)
+            const items = res.slice((current_page.value - 1) * PAGE_SIZE, PAGE_SIZE * current_page.value)
+
+            if (items.length <= 0) {
+                message.value = "Không tìm thấy sản phẩm";
+            }
+
+            showProducts.value = items;
         }
     } catch (error) {
-        console.log(error)
-        products.value = []
+        products.value = [];
         showProducts.value = [];
+        message.value = "Không tìm thấy sản phẩm";
     }
 
     isLoading.value = false;

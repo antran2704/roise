@@ -1,7 +1,7 @@
 <template>
     <ul class="pagination">
         <li :class="[currentPage < 2 && 'pagination_arrow-disable']" class="pagination_arrow">
-            <button class="pagination_arrow-prev">
+            <button @click="() => onClick(currentPage - 1)" class="pagination_arrow-prev">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                     class="pagination_arrow-icon">
                     <path fillRule="evenodd"
@@ -19,7 +19,7 @@
             </button>
         </li>
         <li :class="[currentPage >= pageCount && 'pagination_arrow-disable']" class="pagination_arrow">
-            <button class="pagination_arrow-prev">
+            <button @click="() => onClick(currentPage + 1)" class="pagination_arrow-prev">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                     class="pagination_arrow-icon">
                     <path fillRule="evenodd"
@@ -107,8 +107,14 @@ const setEnd = () => {
 }
 
 onUpdated(() => {
-    setStart();
-    setEnd();
+    if (pageCount.value > 4) {
+        setStart();
+        setEnd();
+    } else {
+        start.value = 0;
+        end.value = showItems.value;
+    }
+
 })
 
 onMounted(() => {

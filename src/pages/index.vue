@@ -1,9 +1,9 @@
 <template>
     <Seo title="Trang chủ" description="Fiama description"
-        :canonical="`${runtimeConfig.domain}`" picture="/img/logo.png" />
+        :canonical="`${runtimeConfig.public.domain}`" picture="/img/logo.png" />
 
     <SlideShow />
-    <ProductRow title="Sản phẩm nổi bật" :items="data" :isLoading="pending" />
+    <ProductRow v-if="!pending && data.length > 0" title="Sản phẩm nổi bật" :items="data.slice(0, 12)" :isLoading="pending" />
     <div class="ltn__banner-area">
         <div class="container">
             <div class="row justify-content-center">
@@ -18,5 +18,7 @@
 
 <script setup>
 const runtimeConfig = useRuntimeConfig();
-const { data, pending } = await useAsyncData(() => $fetch(`${runtimeConfig.public.apiEndpoint}/products`), { server: false })
+const { data = [], pending } = await useAsyncData(() => $fetch(`${runtimeConfig.public.apiEndpoint}/products`), { server: false })
+console.log(runtimeConfig.public.domain)
+// const { data, pending } = await useAsyncData(() => $fetch(`${runtimeConfig.public.apiEndpoint}/product`), { server: false })
 </script>

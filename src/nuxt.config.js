@@ -9,12 +9,13 @@ export default defineNuxtConfig({
     `assets/css/responsive.css`,
   ],
   runtimeConfig: {
-    domain: process.env.NUXT_DOMAIN,
     public: {
-      apiEndpoint: process.env.NUXT_PUBLIC_API_ENDPOINT,
+      domain: process.env.NUXT_PUBLIC_DOMAIN,
+      apiEndpoint: process.env.NUXT_PUBLIC_API_ENDPOINT_DEV,
+      // apiEndpoint: process.env.NUXT_PUBLIC_API_ENDPOINT_PRO,
     },
   },
-  
+
   devtools: { enabled: true },
   lazyLoad: {
     // These are the default values

@@ -1,10 +1,10 @@
 
 <template>
     <div :class="col">
-        <NuxtLink :to="`${LINK}/${data._id}`" class="ltn__product-item text-center">
+        <NuxtLink :to="`${LINK}/${data.id}`" class="ltn__product-item text-center">
             <div class="product-img">
-                <Image v-if="isLazy" :src="data.Picture" :alt="data.Name" :title="data.Name" />
-                <img v-if="!isLazy" :src="data.Picture" :alt="data.Name" :title="data.Name" width="auto" height="auto" loading="lazy"/>
+                <Image :isLazy="isLazy" :src="data.picture" :alt="data.name" :title="data.name" />
+                <!-- <img v-if="!isLazy" :src="data.picture" :alt="data.name" :title="data.name" width="auto" height="auto" loading="lazy"/> -->
                 <div class="product-badge">
                     <ul>
                         <li class="badge-2">10%</li>
@@ -14,14 +14,14 @@
 
             <div class="product-info">
                 <p class="product-title text-capitalize px-1 line-clamp" style="--line-clamp: 2">
-                    {{ data.Name }}
+                    {{ data.name }}
                 </p>
                 <div class="product-price">
                     <div class="d-flex align-items-center justify-content-center gap-2">
                         <p>Giá bán sỉ</p>
-                        <span class="product-price-sale">{{ `${formatBigNumber(data.WholesalePrice)} ${CURRENCY_CHARACTER}` }}</span>
+                        <p class="product-price-sale">{{ `${formatBigNumber(data.wholesalePrice)} ${CURRENCY_CHARACTER}` }}</p>
                     </div>
-                    <del>{{ `${formatBigNumber(data.SpecialPrice)} ${CURRENCY_CHARACTER}` }}</del>
+                    <p class="product-price-special">{{ `${formatBigNumber(data.specialPrice)} ${CURRENCY_CHARACTER}` }}</p>
                 </div>
             </div>
         </NuxtLink>
