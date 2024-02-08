@@ -8564,7 +8564,9 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 .product_price {
   display: flex;
   align-items: center;
-  gap: 5px;
+  grid-gap: 10px;
+  -webkit-column-gap: 10px;
+  gap: 10px;
 }
 
 .product_title {
