@@ -12,9 +12,9 @@
                     <button class="ltn__utilize-close">×</button>
                 </div>
                 <div class="ltn__utilize-menu-search-form">
-                    <form action="#">
-                        <input type="text" placeholder="Search...">
-                        <button><i class="icon-magnifier"></i></button>
+                    <form @submit.prevent="onSearch">
+                        <input v-model.trim="searchText" type="text" placeholder="Tìm kiếm...">
+                        <button @click="onSearch"><i class="icon-magnifier"></i></button>
                     </form>
                 </div>
                 <div class="ltn__utilize-menu">
@@ -86,3 +86,21 @@
         <div class="ltn__utilize-overlay"></div>
     </div>
 </template>
+
+<script setup>
+const router = useRouter();
+const searchText = ref(null);
+
+
+
+const onSearch = () => {
+    if (!searchText.value) return;
+    document.getElementById("ltn__utilize-mobile-menu").classList.remove("ltn__utilize-open");
+    document.querySelector(".ltn__utilize-overlay").style.display = "none";
+    document.querySelector(".ltn__utilize-toggle").classList.remove("close");
+
+    router.replace({ path: '/shop', query: { search: searchText.value, page: 1 } })
+    searchText.value = null;
+}
+
+</script>

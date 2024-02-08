@@ -41,8 +41,8 @@
                                             </div>
                                         </div>
                                         <div class="header-search-1-form">
-                                            <form @submit.prevent="onSearch" id="#" method="get" action="#">
-                                                <input v-model.trim="searchText" type="text" name="search"
+                                            <form @submit.prevent="onSearch" id="#">
+                                                <input v-model.trim="searchText" type="text" name="Tìm kiếm..."
                                                     placeholder="Tìm kiếm" />
                                                 <button @click="onSearch" type="submit">
                                                     <span><i class="icon-magnifier"></i></span>
