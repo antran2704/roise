@@ -18,9 +18,9 @@
 
                             <!-- header-search-2 -->
                             <div class="header-search-2">
-                                <form id="#123" method="get" action="#">
-                                    <input type="text" name="search" value="" placeholder="Tìm kiếm..." />
-                                    <button type="submit">
+                                <form id="#123" @submit.prevent="onSearch">
+                                    <input v-model.trim="searchText" type="text" name="search" placeholder="Tìm kiếm..." />
+                                    <button @click="onSearch" type="submit">
                                         <span><i class="icon-magnifier"></i></span>
                                     </button>
                                 </form>
@@ -41,9 +41,10 @@
                                             </div>
                                         </div>
                                         <div class="header-search-1-form">
-                                            <form id="#" method="get" action="#">
-                                                <input type="text" name="search" value="" placeholder="Search here..." />
-                                                <button type="submit">
+                                            <form @submit.prevent="onSearch" id="#" method="get" action="#">
+                                                <input v-model.trim="searchText" type="text" name="search"
+                                                    placeholder="Tìm kiếm" />
+                                                <button @click="onSearch" type="submit">
                                                     <span><i class="icon-magnifier"></i></span>
                                                 </button>
                                             </form>
@@ -133,7 +134,7 @@
                                                         <NuxtLink to="#">Inner Pages</NuxtLink>
                                                         <ul>
                                                             <li>
-                                                                <NuxtLink to="/">About Us</NuxtLink>
+                                                                <NuxtLink to="/contact">About Us</NuxtLink>
                                                             </li>
                                                             <li>
                                                                 <NuxtLink to="/">Portfolio</NuxtLink>
@@ -158,10 +159,10 @@
                                                                 </NuxtLink>
                                                             </li>
                                                             <li>
-                                                                <NuxtLink to="/">404</NuxtLink>
+                                                                <NuxtLink to="/404">404</NuxtLink>
                                                             </li>
                                                             <li>
-                                                                <NuxtLink to="/">Contact</NuxtLink>
+                                                                <NuxtLink to="/contact">Contact</NuxtLink>
                                                             </li>
                                                             <li>
                                                                 <NuxtLink to="/">Coming Soon</NuxtLink>
@@ -172,21 +173,21 @@
                                                         <NuxtLink to="#">Shop Pages</NuxtLink>
                                                         <ul>
                                                             <li>
-                                                                <NuxtLink to="/">Shop</NuxtLink>
+                                                                <NuxtLink to="/shop">Shop</NuxtLink>
                                                             </li>
                                                             <li>
-                                                                <NuxtLink to="/">Shop Grid</NuxtLink>
+                                                                <NuxtLink to="/shop">Shop Grid</NuxtLink>
                                                             </li>
                                                             <li>
-                                                                <NuxtLink to="/">Shop Left sidebar
+                                                                <NuxtLink to="/shop">Shop Left sidebar
                                                                 </NuxtLink>
                                                             </li>
                                                             <li>
-                                                                <NuxtLink to="/">Shop right sidebar
+                                                                <NuxtLink to="/shop">Shop right sidebar
                                                                 </NuxtLink>
                                                             </li>
                                                             <li>
-                                                                <NuxtLink to="/">Shop details </NuxtLink>
+                                                                <NuxtLink to="/shop">Shop details </NuxtLink>
                                                             </li>
                                                         </ul>
                                                     </li>
@@ -220,19 +221,19 @@
                                             <NuxtLink to="/">Cửa Hàng</NuxtLink>
                                             <ul>
                                                 <li>
-                                                    <NuxtLink to="/">Shop</NuxtLink>
+                                                    <NuxtLink to="/shop">Shop</NuxtLink>
                                                 </li>
                                                 <li>
-                                                    <NuxtLink to="/">Shop Grid</NuxtLink>
+                                                    <NuxtLink to="/shop">Shop Grid</NuxtLink>
                                                 </li>
                                                 <li>
-                                                    <NuxtLink to="/">Shop Left sidebar</NuxtLink>
+                                                    <NuxtLink to="/shop">Shop Left sidebar</NuxtLink>
                                                 </li>
                                                 <li>
-                                                    <NuxtLink to="/">Shop right sidebar</NuxtLink>
+                                                    <NuxtLink to="/shop">Shop right sidebar</NuxtLink>
                                                 </li>
                                                 <li>
-                                                    <NuxtLink to="/">Shop details </NuxtLink>
+                                                    <NuxtLink to="/shop">Shop details </NuxtLink>
                                                 </li>
                                                 <li>
                                                     <NuxtLink to="#">Other Pages <span class="float-right">>></span>
@@ -311,3 +312,18 @@
         <!-- header-bottom-area end -->
     </div>
 </template>
+
+<script setup>
+const router = useRouter();
+const searchText = ref(null);
+
+
+
+const onSearch = () => {
+    if (!searchText.value) return;
+
+    router.replace({ path: '/shop', query: { search: searchText.value, page: 1 } })
+    searchText.value = null;
+}
+
+</script>

@@ -21,31 +21,25 @@
                     <ul>
                         <li>
                             <a href="/">Trang Chủ</a>
-                            <!-- <ul class="sub-menu">
-                                    <li><a href="/">Home Style - 01</a></li>
-                                    <li><a href="/">Home Style - 02</a></li>
-                                    <li><a href="/">Home Style - 03</a></li>
-                                    <li><a href="/">Home Style - 04</a></li>
-                                </ul> -->
                         </li>
                         <li>
-                            <a href="/">About Us</a>
+                            <a href="/contact">About Us</a>
                         </li>
                         <li>
                             <a href="/">Cửa Hàng</a>
                             <ul class="sub-menu">
-                                <li><a href="/">Shop</a></li>
-                                <li><a href="/">Shop Grid</a></li>
-                                <li><a href="/">Shop Left sidebar</a></li>
-                                <li><a href="/">Shop right sidebar</a></li>
-                                <li><a href="/">Shop details </a></li>
-                                <li><a href="/">Cart</a></li>
-                                <li><a href="/">Wishlist</a></li>
-                                <li><a href="/">Checkout</a></li>
-                                <li><a href="/">Order Tracking</a></li>
-                                <li><a href="/">My Account</a></li>
-                                <li><a href="/">Sign in</a></li>
-                                <li><a href="/">Register</a></li>
+                                <li><a href="/shop">Shop</a></li>
+                                <li><a href="/shop">Shop Grid</a></li>
+                                <li><a href="/shop">Shop Left sidebar</a></li>
+                                <li><a href="/shop">Shop right sidebar</a></li>
+                                <li><a href="/shop">Shop details </a></li>
+                                <li><a href="/shop">Cart</a></li>
+                                <li><a href="/shop">Wishlist</a></li>
+                                <li><a href="/shop">Checkout</a></li>
+                                <li><a href="/shop">Order Tracking</a></li>
+                                <li><a href="/shop">My Account</a></li>
+                                <li><a href="/shop">Sign in</a></li>
+                                <li><a href="/shop">Register</a></li>
                             </ul>
                         </li>
                         <li>
@@ -61,19 +55,19 @@
                         <li>
                             <a href="/">Pages</a>
                             <ul class="sub-menu">
-                                <li><a href="/">About Us</a></li>
+                                <li><a href="/contact">About Us</a></li>
                                 <li><a href="/">Portfolio</a></li>
                                 <li><a href="/">Portfolio - 02</a></li>
                                 <li><a href="/">Portfolio Details</a></li>
                                 <li><a href="/">FAQ</a></li>
                                 <li><a href="/">Google Map Locations</a></li>
-                                <li><a href="/">404</a></li>
-                                <li><a href="/">Contact</a></li>
+                                <li><a href="/404">404</a></li>
+                                <li><a href="/contact">Contact</a></li>
                                 <li><a href="/">Coming Soon</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="/">Liên Hệ</a>
+                            <a href="/contact">Liên Hệ</a>
                         </li>
                     </ul>
                 </div>

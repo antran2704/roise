@@ -6,7 +6,7 @@
     <!-- PRODUCT DETAILS AREA START -->
     <div class="ltn__product-area ">
         <div class="container">
-            <div v-if="!message" class="row">
+            <div class="row">
                 <div class="col-12 order-lg-2 mb-100">
                     <div class="ltn__shop-options">
                         <ul>
@@ -17,7 +17,7 @@
                                 </div>
                             </li>
                             <li>
-                                <div class="widget ltn__search-widget">
+                                <div class="position-relative widget ltn__search-widget">
                                     <form @submit.prevent="() => {
                                         onSearch(0);
                                     }">
@@ -27,12 +27,14 @@
                                         <button type="button" @click="() => {
                                             onSearch(0);
                                         }"><i class="icon-magnifier"></i></button>
+
                                     </form>
+                                    <button v-if="searchText" @click="onClearSearch " class="ltn__utilize-close">×</button>
                                 </div>
                             </li>
                         </ul>
                     </div>
-                    <div class="tab-content">
+                    <div v-if="!message" class="tab-content">
                         <div class="tab-pane fade active show" id="liton_product_grid">
                             <div class="ltn__product-tab-content-inner ltn__product-grid-view">
                                 <ProductRow title="Sản phẩm" :items="showProducts" :isLoading="isLoading" />
@@ -58,6 +60,8 @@
 </template>
 
 <script setup>
+import debounce from '~/utils/debouce';
+
 let searchTimer;
 
 const route = useRoute();
@@ -74,6 +78,11 @@ const current_page = ref(query.page ? Number(query.page) : 1);
 
 const message = ref(null);
 
+const onClearSearch = () => {
+    searchText.value = null;
+    onSearch(0);
+}
+
 const onClick = (page) => {
     if (message.value) {
         message.value = null;
@@ -82,17 +91,7 @@ const onClick = (page) => {
     router.replace({ path: route.fullPath, query: { ...route.query, page } })
     showProducts.value = products.value.slice((page - 1) * PAGE_SIZE, PAGE_SIZE * page)
     current_page.value = page;
-    scroll({top: 400, behavior: "smooth"})
-}
-
-const debounce = (callback, timer) => {
-    if (searchTimer) {
-        clearTimeout(searchTimer);
-    }
-
-    searchTimer = setTimeout(async () => {
-        return await callback();
-    }, timer)
+    scroll({ top: 400, behavior: "smooth" })
 }
 
 const getProducts = async () => {
@@ -126,14 +125,18 @@ const getProducts = async () => {
 }
 
 const onSearch = (timmer) => {
+    if (searchTimer) {
+        clearTimeout(searchTimer);
+    }
+
     if (!searchText.value) {
-        debounce(() => getProducts());
+        searchTimer = debounce(() => getProducts(), 0);
         router.replace({ path: route.fullPath })
         current_page.value = 1;
         return;
     }
 
-    debounce(() => handleSearch(searchText.value), timmer);
+    searchTimer = debounce(() => handleSearch(searchText.value), timmer);
     router.replace({ path: route.fullPath, query: { search: searchText.value } })
     current_page.value = 1;
 }
