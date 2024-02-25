@@ -12,7 +12,7 @@
                                     loading="lazy"></NuxtLink>
                         </div>
                     </div>
-                    <div class="col header-contact-serarch-column d-none d-xl-block">
+                    <div class="col header-contact-serarch-column d-none d-lg-block">
                         <div class="header-contact-search">
                             <!-- header-feature-item -->
 
@@ -60,7 +60,8 @@
                                         <div class="header-feature-info">
                                             <p class="fw-bold">Điện thoại</p>
                                             <p>
-                                                <NuxtLink to="tel:0123456789">+0123-456-789</NuxtLink>
+                                                <NuxtLink :to='`tel:${runtimeConfig.public.phoneNumber}`'>+{{
+                                                    runtimeConfig.public.phoneNumber }}</NuxtLink>
                                             </p>
                                         </div>
                                     </div>
@@ -111,22 +112,8 @@
                                     <ul>
                                         <li class="menu-icon">
                                             <NuxtLink to="/">Trang Chủ</NuxtLink>
-                                            <ul>
-                                                <li>
-                                                    <NuxtLink to="/">Home Style - 01</NuxtLink>
-                                                </li>
-                                                <li>
-                                                    <NuxtLink to="/">Home Style - 02</NuxtLink>
-                                                </li>
-                                                <li>
-                                                    <NuxtLink to="/">Home Style - 03</NuxtLink>
-                                                </li>
-                                                <li>
-                                                    <NuxtLink to="/">Home Style - 04</NuxtLink>
-                                                </li>
-                                            </ul>
                                         </li>
-                                        <li class="menu-icon mega-menu-parent">
+                                        <!-- <li class="menu-icon mega-menu-parent">
                                             <NuxtLink to="/">Pages</NuxtLink>
                                             <ClientOnly>
                                                 <ul class="mega-menu">
@@ -216,10 +203,10 @@
                                                 </ul>
                                             </ClientOnly>
 
-                                        </li>
+                                        </li> -->
                                         <li class="menu-icon">
-                                            <NuxtLink to="/">Cửa Hàng</NuxtLink>
-                                            <ul>
+                                            <NuxtLink to="/shop">Cửa Hàng</NuxtLink>
+                                            <!-- <ul>
                                                 <li>
                                                     <NuxtLink to="/shop">Shop</NuxtLink>
                                                 </li>
@@ -262,41 +249,7 @@
                                                         </li>
                                                     </ul>
                                                 </li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-icon">
-                                            <NuxtLink to="/">Portfolio</NuxtLink>
-                                            <ul>
-                                                <li>
-                                                    <NuxtLink to="/">Portfolio</NuxtLink>
-                                                </li>
-                                                <li>
-                                                    <NuxtLink to="/">Portfolio - 02</NuxtLink>
-                                                </li>
-                                                <li>
-                                                    <NuxtLink to="/">Portfolio Details</NuxtLink>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-icon">
-                                            <NuxtLink to="/">News</NuxtLink>
-                                            <ul>
-                                                <li>
-                                                    <NuxtLink to="/">News</NuxtLink>
-                                                </li>
-                                                <li>
-                                                    <NuxtLink to="/">News Grid</NuxtLink>
-                                                </li>
-                                                <li>
-                                                    <NuxtLink to="/">News Left sidebar</NuxtLink>
-                                                </li>
-                                                <li>
-                                                    <NuxtLink to="/">News Right sidebar</NuxtLink>
-                                                </li>
-                                                <li>
-                                                    <NuxtLink to="/">News details</NuxtLink>
-                                                </li>
-                                            </ul>
+                                            </ul> -->
                                         </li>
                                         <li>
                                             <NuxtLink to="/contact">Liên Hệ</NuxtLink>
@@ -314,10 +267,9 @@
 </template>
 
 <script setup>
+const runtimeConfig = useRuntimeConfig();
 const router = useRouter();
 const searchText = ref(null);
-
-
 
 const onSearch = () => {
     if (!searchText.value) return;

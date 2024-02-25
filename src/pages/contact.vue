@@ -143,8 +143,8 @@
                         <div class="ltn__contact-address-icon">
                             <i class="icon-location-pin"></i>
                         </div>
-                        <h3>Điaj chỉ</h3>
-                        <p>123 Nguyễn Kiệm, P.3, Gò Vấp, TP.HCM
+                        <h3>Địa chỉ</h3>
+                        <p>{{ runtimeConfig.public.address }}
                         </p>
                     </div>
                 </div>
@@ -154,8 +154,8 @@
                             <i class="icon-phone"></i>
                         </div>
                         <h3>Số điện thoại</h3>
-                        <p>+1234-567 890 <br>
-                            +09876-543 210</p>
+                        <p>+{{ runtimeConfig.public.phoneNumber }}
+                        </p>
                     </div>
                 </div>
                 <div class="col-lg-3">
@@ -190,27 +190,4 @@
 
 <script setup>
 const runtimeConfig = useRuntimeConfig();
-const feedbacks = [
-    {
-        name: "Antran dev",
-        role: "Khách hàng",
-        content: "áo rất dày dặn, chất liệu vải rất tốt, đường may không bị thưa, vì là giá rẻ nên không thể đòi hỏi gì thêm quá tốt cho 1 chiếc ảo"
-    },
-    {
-        name: "Antran",
-        role: "Khách hàng",
-        content: "Áo nhung tăm chất liệu đẹp tuyệt vời thì mình sẽ còn ủng hộ tiếp nha shop, rất ưng ý."
-    },
-    {
-        name: "Antran 2",
-        role: "Khách hàng",
-        content: "Giao nhanh, sản phẩm chất lượng, màu áo đậm hơn so với trong hình nhưng vẫn xinh, chất vải ổn, nói chung xịn lắm không có gì để chê"
-    },
-    {
-        name: "Antran 3",
-        role: "Khách hàng",
-        content: "Áo quá xuất sắc luôn. Áo đép giao hàng nhanh shop uy tín lắm nha cả nhà. Nói chung mọi người nên mua đi chơi tết lần sau sẽ ủng hộ nữa nhá 5 sao"
-    },
-]
-
 </script>

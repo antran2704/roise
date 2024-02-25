@@ -29,7 +29,7 @@
                                         }"><i class="icon-magnifier"></i></button>
 
                                     </form>
-                                    <button v-if="searchText" @click="onClearSearch " class="ltn__utilize-close">×</button>
+                                    <button v-if="searchText" @click="onClearSearch" class="ltn__utilize-close">×</button>
                                 </div>
                             </li>
                         </ul>
@@ -73,7 +73,7 @@ const showProducts = ref([]);
 const products = ref([])
 const isLoading = ref(true);
 const searchText = ref(query.search ? query.search : null);
-const PAGE_SIZE = 6;
+const PAGE_SIZE = 16;
 const current_page = ref(query.page ? Number(query.page) : 1);
 
 const message = ref(null);
@@ -103,17 +103,17 @@ const getProducts = async () => {
 
 
     try {
-        const res = await $fetch(`${runtimeConfig.public.apiEndpoint}/products`);
-        // const res = await $fetch(`${runtimeConfig.public.apiEndpoint}/product`);
+        const res = await $fetch(`${runtimeConfig.public.apiEndpoint}/product`);
         if (res) {
-            products.value = res;
-            const items = res.slice((current_page.value - 1) * PAGE_SIZE, PAGE_SIZE * current_page.value);
+            const resProducts = res.filter(product => product.isShow)
+            products.value = resProducts;
+            const items = resProducts.slice((current_page.value - 1) * PAGE_SIZE, PAGE_SIZE * current_page.value);
 
             if (items.length <= 0) {
                 message.value = "Không tìm thấy sản phẩm";
             }
 
-            showProducts.value = res.slice((current_page.value - 1) * PAGE_SIZE, PAGE_SIZE * current_page.value);
+            showProducts.value = resProducts.slice((current_page.value - 1) * PAGE_SIZE, PAGE_SIZE * current_page.value);
         }
     } catch (error) {
         products.value = []
@@ -150,15 +150,16 @@ const handleSearch = async (search) => {
 
     try {
 
-        const res = await $fetch(`${runtimeConfig.public.apiEndpoint}/products?search=${search}`);
-        // const res = await $fetch(`${runtimeConfig.public.apiEndpoint}/product/search`, {
-        //     method: 'POST',
-        //     body: { searchText: search }
-        // });
+        const res = await $fetch(`${runtimeConfig.public.apiEndpoint}/product/search`, {
+            method: 'POST',
+            body: { searchText: search }
+        });
 
         if (res) {
-            products.value = res;
-            const items = res.slice((current_page.value - 1) * PAGE_SIZE, PAGE_SIZE * current_page.value)
+            const resProducts = res.filter(product => product.isShow)
+
+            products.value = resProducts;
+            const items = resProducts.slice((current_page.value - 1) * PAGE_SIZE, PAGE_SIZE * current_page.value)
 
             if (items.length <= 0) {
                 message.value = "Không tìm thấy sản phẩm";

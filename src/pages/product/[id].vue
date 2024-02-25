@@ -2,10 +2,11 @@
     <Loading v-if="pending || !product" />
     <div v-if="!pending && product">
         <Seo :title="product.name" :description="product.overview"
-            :canonical="`${runtimeConfig.public.domain}/products/${product.id}`" :picture="product.Picture"/>
+            :canonical="`${runtimeConfig.public.domain}/products/${product.id}`" :picture="product.picture" />
 
 
-        <Breadcrumb title="Sản phẩm" :list="[{ label: 'Trang Chủ', path: '/' }, { label: 'Shop', path: '/shop' }, { label: product.name }]" />
+        <Breadcrumb title="Sản phẩm"
+            :list="[{ label: 'Trang Chủ', path: '/' }, { label: 'Shop', path: '/shop' }, { label: product.name }]" />
 
         <!-- SHOP DETAILS AREA START -->
         <div class="ltn__shop-details-area pb-70">
@@ -14,10 +15,10 @@
                     <div class="col-lg-12 col-md-12">
                         <div class="ltn__shop-details-inner">
                             <div class="row">
-                                <div class="col-lg-6">
+                                <div class="col-lg-6 mb-5">
                                     <div @click="onClickFancybox" class="ltn__shop-details-large-img">
-                                        <Image :isLazy="false" :src="currentImage" :alt="product.name" title="thumbnail" loading="lazy"
-                                            width="auto" height="auto" />
+                                        <Image :isLazy="false" :src="currentImage" :alt="product.name"
+                                            :title="product.name" />
 
                                         <div v-if="gallery.length > 0"
                                             class="ltn__shop-details-gallery-count d-flex justify-content-center align-items-center">
@@ -27,7 +28,8 @@
                                         </div>
                                     </div>
 
-                                    <div v-if="gallery.length > 0" class="ltn__shop-details-img-gallery ltn__shop-details-img-gallery-2">
+                                    <div v-if="gallery.length > 0"
+                                        class="ltn__shop-details-img-gallery ltn__shop-details-img-gallery-2">
                                         <Swiper @swiper="getRef" :modules="[SwiperNavigation]" :slides-per-view="3"
                                             :space-between="10" :navigation="{
                                                 enabled: true,
@@ -38,7 +40,7 @@
                                                     currentImage = image
                                                     onSlideChange();
                                                 }">
-                                                <Image :class="{ isActive: image === currentImage }" :src="image"
+                                                <Image :class="{ isActive: image === currentImage }" :src="image.imageUrl"
                                                     :alt="product.name" :title="product.name" />
                                             </SwiperSlide>
                                         </Swiper>
@@ -46,36 +48,84 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="modal-product-info shop-details-info">
-                                        <h3 class="mb-10">{{ product.name }}</h3>
+                                        <div>
+                                            <h3 class="mb-10">{{ product.name }}</h3>
 
-                                        <div class="modal-product-brief d-flex align-items-center mb-10 gap-2">
-                                            <p class="product_price-title product_title">Hãng:</p>
-                                            <p class="product_text">
-                                                {{ product.brand ? product.brand : "Đang cập nhật" }}
-                                            </p>
+                                            <div class="product_price-wrap mb-10">
+                                                <div class="product_price">
+                                                    <p class="product_price-title product_title text-nowrap"> Giá bán sỉ:
+                                                    </p>
+                                                    <p class="product_price-value">
+                                                        {{ product.wholesalePrice ?
+                                                            `${formatBigNumber(product.wholesalePrice)}
+                                                            ${CURRENCY_CHARACTER}` : "Đang cập nhật" }}
+                                                    </p>
+                                                </div>
+                                                <div class="product_price">
+                                                    <p class="product_price-title product_title text-nowrap"> Giá bán lẻ:
+                                                    </p>
+                                                    <p class="product_price-value">
+                                                        {{ product.specialPrice ? `${formatBigNumber(product.specialPrice)}
+                                                                                                                ${CURRENCY_CHARACTER}` : "Đang cập nhật" }}
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div class="modal-product-meta ltn__product-details-menu-1 mb-20">
+                                                <ul>
+                                                    <li v-if="product.colours.length > 0">
+                                                        <div class="ltn__size-widget clearfix">
+                                                            <strong class="d-meta-title fw-bolder">Color:</strong>
+                                                            <ul>
+                                                                <li v-for="color in product.colours">{{ color.name }}</li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                    <li v-if="product.sizes.length > 0">
+                                                        <div class="ltn__size-widget clearfix mt-2">
+                                                            <strong class="d-meta-title fw-bolder">Size:</strong>
+                                                            <ul>
+                                                                <li v-for="size in product.sizes">{{ size.name }}</li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
 
-                                        <div class="product_price-wrap mb-10">
-                                            <div class="product_price">
-                                                <p class="product_price-title product_title text-nowrap"> Giá bán sỉ:</p>
-                                                <p class="product_price-value">
-                                                    {{ product.wholesalePrice ? `${formatBigNumber(product.wholesalePrice)}
-                                                                                                        ${CURRENCY_CHARACTER}` : "Đang cập nhật" }}
+                                        <div>
+                                            <div class="modal-product-brief mb-10">
+                                                <p class="product_price-title product_title fw-bolder">Tổng quan sản phẩm:</p>
+                                                <p class="product_text">
+                                                    {{ product.overview }}
                                                 </p>
                                             </div>
-                                            <div class="product_price">
-                                                <p class="product_price-title product_title text-nowrap"> Giá bán lẻ:</p>
-                                                <p class="product_price-value">
-                                                    {{ product.specialPrice ? `${formatBigNumber(product.specialPrice)}
-                                                                                                        ${CURRENCY_CHARACTER}` : "Đang cập nhật" }}
+
+                                            <div class="modal-product-brief d-flex align-items-start mb-10 gap-2">
+                                                <p class="product_price-title product_title fw-bolder">Hãng:</p>
+                                                <p class="product_text">
+                                                    {{ product.brand ? product.brand : "Đang cập nhật" }}
                                                 </p>
                                             </div>
-                                        </div>
-                                        <div class="modal-product-brief mb-10">
-                                            <p class="product_price-title product_title">Tổng quan sản phẩm:</p>
-                                            <p class="product_text">
-                                                {{ product.overview }}
-                                            </p>
+                                            <div class="modal-product-brief d-flex align-items-start mb-10 gap-2">
+                                                <p class="product_price-title product_title fw-bolder">SKU:</p>
+                                                <p class="product_text">
+                                                    {{ product.sku ? product.sku : "Đang cập nhật" }}
+                                                </p>
+                                            </div>
+                                            <div class="modal-product-brief d-flex align-items-start mb-10 gap-2">
+                                                <p class="product_price-title product_title fw-bolder">Thư mục:</p>
+                                                <p class="product_text">
+                                                    {{ product.category.id ? product.category.name : "Đang cập nhật" }}
+                                                </p>
+                                            </div>
+                                            <div v-if="product.tags.length > 0"
+                                                class="modal-product-brief d-flex align-items-start mb-10 gap-2">
+                                                <p class="product_price-title product_title fw-bolder">Tags:</p>
+                                                <p class="product_text">
+                                                    {{ product.tags.join(", ") }}
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -86,7 +136,8 @@
             </div>
         </div>
 
-        <FancyBox v-if="isShowFancybox && gallery.length > 0" :gallery="gallery" :currentIndex="currentIndexSlide" :onClose="onClickFancybox" />
+        <FancyBox v-if="isShowFancybox && gallery.length > 0" :gallery="gallery" :currentIndex="currentIndexSlide"
+            :onClose="onClickFancybox" />
         <!-- SHOP DETAILS AREA END -->
         <!-- SHOP DETAILS TAB AREA START -->
         <div class="ltn__shop-details-tab-area pb-60">
@@ -107,23 +158,6 @@
                                         <ShowMore :maxHeight="120">
                                             <p>
                                                 {{ product.description }}
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                tempor
-                                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                                nost
-                                                exercit ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                                                irure
-                                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                                pariatur Excepte sint occaecat cupidatat non proident, sunt in culpa qui
-                                                officia
-                                                deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste
-                                                natus
-                                                error sit volu accusantium doloremque laudantium, totam rem aperiam, eaque
-                                                ipsa
-                                                quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                                                explica Nemllo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-                                                aut
-                                                fugit,
                                             </p>
                                         </ShowMore>
                                     </div>
@@ -153,7 +187,7 @@
                 </div>
             </div>
         </div>
-        <SlideProduct title="Sản phẩm khác" :items="data" />
+        <SlideProduct :isLoading="pedingOtherProducts" title="Sản phẩm khác" :items="otherProducts" />
         <Brand />
     </div>
 </template>
@@ -162,22 +196,28 @@ const runtimeConfig = useRuntimeConfig();
 const route = useRoute();
 const router = useRouter();
 const id = route.params.id;
-const { data: product, pending } = await useFetch(`${runtimeConfig.public.apiEndpoint}/products/${id}`)
-// const { data: product, pending } = await useFetch(`${runtimeConfig.public.apiEndpoint}/product/${id}`)
+
+const { data: product, pending } = await useFetch(`${runtimeConfig.public.apiEndpoint}/product/${id}`)
 
 if (!product.value && !pending.value) {
     router.push("/404");
 }
 
-const gallery = product.value ? product.value.gallery : [];
-
+const gallery = product.value ? product.value.images : [];
 const isShowFancybox = ref(false);
-const currentImage = ref(gallery[0]);
+const currentImage = ref(gallery.length > 0 ? gallery[0].imageUrl : []);
 const currentIndexSlide = ref(0);
 const swiper = ref(null);
 
-const { data } = await useAsyncData(() => $fetch(`${runtimeConfig.public.apiEndpoint}/products`))
-// const { data } = await useAsyncData(() => $fetch(`${runtimeConfig.public.apiEndpoint}/product`))
+const otherProducts = ref([]);
+
+const { pending: pedingOtherProducts } = await useFetch(`${runtimeConfig.public.apiEndpoint}/product`, {
+    server: false,
+    onResponse({ response }) {
+        const products = response._data.filter(product => product.isShow).slice(0, 12);
+        otherProducts.value = products;
+    }
+});
 
 const getRef = (swiperInstance) => {
     swiper.value = swiperInstance

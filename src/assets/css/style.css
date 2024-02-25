@@ -4415,8 +4415,9 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   font-weight: 400;
   font-family: var(--ltn__paragraph-font);
 }
-.ltn__size-widget ul li a:hover {
+.ltn__size-widget ul li:hover {
   color: var(--ltn__secondary-color);
+  cursor: pointer;
 }
 
 /* ----------------------------------------------------
@@ -5231,7 +5232,9 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 }
 
 .site-logo {
-  min-width: 185px;
+  min-width: 60px;
+  width: 60px;
+  padding: 20px 0;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6897,9 +6900,6 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 }
 
 @media (max-width: 1199px) {
-  .site-logo {
-    min-width: 180px;
-  }
   .ltn__main-menu > ul > li > a {
     padding: 20px 15px;
   }
@@ -7006,9 +7006,6 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   .welcome p {
     line-height: 20px;
     margin: 5px 0;
-  }
-  .site-logo {
-    min-width: 100px;
   }
   .ltn__header-5 .top-bar-right,
   .ltn__header-4 .top-bar-right {
@@ -8570,13 +8567,12 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 }
 
 .product_title {
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 14px;
   margin: 0;
 }
 
 .product_text {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .product_price .product_price-value {
@@ -8958,7 +8954,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 }
 
 .ltn__shop-details-img-gallery-2 {
-  margin: 10px 0px 30px;
+  margin: 10px 0px 0px;
 }
 
 .ltn__shop-details-img-gallery-2 .ltn__shop-details-small-img {
@@ -9012,6 +9008,12 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 }
 .ltn__shop-details-small-img.slick-arrow-2:hover .swiper-button-prev {
   left: 0px;
+}
+
+.slick-arrow-1 .slick-next.swiper-button-disabled,
+.slick-arrow-1 .slick-prev.swiper-button-disabled {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .swiper-button-prev.swiper-button-disabled,
@@ -14588,6 +14590,9 @@ input.cart-plus-minus-box {
     Brand Logo
 ---------------------------------------------------- */
 .ltn__brand-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   /*
     -webkit-filter: grayscale(1);
     filter: grayscale(1);

@@ -76,7 +76,7 @@
                                             <i class="icon-location-pin"></i>
                                         </div>
                                         <div class="footer-address-info">
-                                            <p>Brooklyn, New York, United States</p>
+                                            <p>{{ runtimeConfig.public.address }}</p>
                                         </div>
                                     </li>
                                     <li>
@@ -84,7 +84,7 @@
                                             <i class="icon-phone"></i>
                                         </div>
                                         <div class="footer-address-info">
-                                            <p><a href="tel:+0123-456789">+0123-456789</a></p>
+                                            <p><a :href="`tel:+${runtimeConfig.public.phoneNumber}`">+{{ runtimeConfig.public.phoneNumber }}</a></p>
                                         </div>
                                     </li>
                                     <li>
@@ -119,7 +119,7 @@
                     <div class="col-md-6 col-12">
                         <div class="footer-copyright-left">
                             <div class="ltn__copyright-design clearfix">
-                                <p>&copy; <span class="current-year"></span> - Just For You</p>
+                                <p>&copy; <span class="current-year"></span> - Antrandev</p>
                             </div>
                         </div>
                     </div>
@@ -147,3 +147,7 @@
         </div>
     </footer>
 </template>
+
+<script setup>
+const runtimeConfig = useRuntimeConfig();
+</script>

@@ -9,8 +9,8 @@
                 </div>
             </div>
             <div>
-                <Swiper :modules="[SwiperPagination, SwiperNavigation]" :slides-per-view="2" :loop="true"
-                    :space-between="20" :navigation="{
+                <Swiper :modules="[SwiperPagination, SwiperNavigation]" :slides-per-view="2" :space-between="20"
+                    :navigation="{
                         enabled: true,
                         nextEl: btnNextRef,
                         prevEl: btnPrevtRef
@@ -26,9 +26,9 @@
                         <i class="icon-arrow-right" alt="Arrow Icon"></i>
                     </button>
                     <SwiperSlide v-if="!isLoading" v-for="(item, index) in items.slice(0, 12)" :key="index">
-                        <Product :data="item"/>
+                        <Product :data="item" :isLazy="true" />
                     </SwiperSlide>
-                    <SwiperSlide v-if="isLoading" v-for="(item, index) in 4" :key="index" >
+                    <SwiperSlide v-if="isLoading" v-for="(item, index) in 4" :key="index">
                         <ProductLoading />
                     </SwiperSlide>
                 </Swiper>

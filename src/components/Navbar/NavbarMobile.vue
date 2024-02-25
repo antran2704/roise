@@ -23,48 +23,7 @@
                             <a href="/">Trang Chủ</a>
                         </li>
                         <li>
-                            <a href="/contact">About Us</a>
-                        </li>
-                        <li>
-                            <a href="/">Cửa Hàng</a>
-                            <ul class="sub-menu">
-                                <li><a href="/shop">Shop</a></li>
-                                <li><a href="/shop">Shop Grid</a></li>
-                                <li><a href="/shop">Shop Left sidebar</a></li>
-                                <li><a href="/shop">Shop right sidebar</a></li>
-                                <li><a href="/shop">Shop details </a></li>
-                                <li><a href="/shop">Cart</a></li>
-                                <li><a href="/shop">Wishlist</a></li>
-                                <li><a href="/shop">Checkout</a></li>
-                                <li><a href="/shop">Order Tracking</a></li>
-                                <li><a href="/shop">My Account</a></li>
-                                <li><a href="/shop">Sign in</a></li>
-                                <li><a href="/shop">Register</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="/">News</a>
-                            <ul class="sub-menu">
-                                <li><a href="/">News</a></li>
-                                <li><a href="/">News Grid</a></li>
-                                <li><a href="/">News Left sidebar</a></li>
-                                <li><a href="/">News Right sidebar</a></li>
-                                <li><a href="/">News details</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="/">Pages</a>
-                            <ul class="sub-menu">
-                                <li><a href="/contact">About Us</a></li>
-                                <li><a href="/">Portfolio</a></li>
-                                <li><a href="/">Portfolio - 02</a></li>
-                                <li><a href="/">Portfolio Details</a></li>
-                                <li><a href="/">FAQ</a></li>
-                                <li><a href="/">Google Map Locations</a></li>
-                                <li><a href="/404">404</a></li>
-                                <li><a href="/contact">Contact</a></li>
-                                <li><a href="/">Coming Soon</a></li>
-                            </ul>
+                            <a href="/shop">Cửa Hàng</a>
                         </li>
                         <li>
                             <a href="/contact">Liên Hệ</a>
