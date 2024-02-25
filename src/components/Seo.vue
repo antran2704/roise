@@ -4,6 +4,7 @@
         <Link rel="canonical" :href="canonical" />
         <Meta name="description" :content="description" />
         <Meta name="theme-color" content="#ffffff" />
+        <Meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/>
 
         <!-- Open Graph / Facebook -->
         <Meta property="og:type" content="website" />
