@@ -1,9 +1,11 @@
 <template>
-    <Seo title="Trang chủ" description="Fiama description" :canonical="`${runtimeConfig.public.domain}`"
-        picture="/img/logo.png" />
+    <Seo title="Nội y giá sỉ" description="Fiama description" :canonical="`${runtimeConfig.public.domain}`"
+        picture="/img/logo.jpg" />
 
     <!-- <SlideShow /> -->
-    <ProductRow title="Sản phẩm mới" :items="newProducts.slice(0, 12)" :isLoading="pending" />
+    <div class="pt-40">
+        <ProductRow title="Sản phẩm mới" :items="newProducts.slice(0, 12)" :isLoading="pending" />
+    </div>
     <!-- <div class="ltn__banner-area">
         <div class="container">
             <div class="row justify-content-center">
@@ -21,7 +23,6 @@ const runtimeConfig = useRuntimeConfig();
 
 const { data, pending } = await useFetch(`${runtimeConfig.public.apiEndpoint}/product`);
 
-const newProducts = ref(data.value.filter(product => product.isShow && product.isNew) || []);
-const hotProducts = ref(data.value.filter(product => product.isShow && product.isHot) || []);
-
+const newProducts = ref(data.value ? data.value.filter(product => product.isShow && product.isNew) : []);
+const hotProducts = ref(data.value ? data.value.filter(product => product.isShow && product.isHot) : []);
 </script>

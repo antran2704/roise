@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 order-lg-2 mb-100">
-                    <div class="ltn__shop-options">
+                    <!-- <div class="ltn__shop-options">
                         <ul>
                             <li>
                                 <div class="showing-product-number text-right">
@@ -33,7 +33,7 @@
                                 </div>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                     <div v-if="!message" class="tab-content">
                         <div class="tab-pane fade active show" id="liton_product_grid">
                             <div class="ltn__product-tab-content-inner ltn__product-grid-view">

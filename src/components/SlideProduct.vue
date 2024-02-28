@@ -1,5 +1,5 @@
 <template>
-    <div class="ltn__product-slider-area ltn__product-gutter pt-60 pb-40">
+    <div class="ltn__product-slider-area ltn__product-gutter pb-40">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

@@ -6,7 +6,7 @@
                 <div class="ltn__utilize-menu-head">
                     <div class="site-logo">
                         <NuxtLink to="/">
-                            <img src="/img/logo.png" alt="Logo" title="Logo" width="auto" height="auto" loading="lazy" />
+                            <img src="/img/logo.jpg" alt="Logo" title="Logo" width="auto" height="auto" loading="lazy" />
                         </NuxtLink>
                     </div>
                     <button class="ltn__utilize-close">×</button>

@@ -58,11 +58,11 @@
                                                     <p class="product_price-value">
                                                         {{ product.wholesalePrice ?
                                                             `${formatBigNumber(product.wholesalePrice)}
-                                                            ${CURRENCY_CHARACTER}` : "Đang cập nhật" }}
+                                                                                                                ${CURRENCY_CHARACTER}` : "Đang cập nhật" }}
                                                     </p>
                                                 </div>
                                                 <div class="product_price">
-                                                    <p class="product_price-title product_title text-nowrap"> Giá bán lẻ:
+                                                    <p class="product_price-title product_title text-nowrap"> Giá bán buôn:
                                                     </p>
                                                     <p class="product_price-value">
                                                         {{ product.specialPrice ? `${formatBigNumber(product.specialPrice)}
@@ -95,7 +95,8 @@
 
                                         <div>
                                             <div class="modal-product-brief mb-10">
-                                                <p class="product_price-title product_title fw-bolder">Tổng quan sản phẩm:</p>
+                                                <p class="product_price-title product_title fw-bolder">Tổng quan sản phẩm:
+                                                </p>
                                                 <p class="product_text">
                                                     {{ product.overview }}
                                                 </p>
@@ -145,13 +146,6 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="ltn__shop-details-tab-inner">
-                            <div class="ltn__shop-details-tab-menu">
-                                <div class="nav">
-                                    <a class="active show" data-bs-toggle="tab"
-                                        href="#liton_tab_details_1_1">Description</a>
-                                    <a data-bs-toggle="tab" href="#liton_tab_details_1_4" class="">Shipping</a>
-                                </div>
-                            </div>
                             <div class="tab-content">
                                 <div class="tab-pane fade active show" id="liton_tab_details_1_1">
                                     <div class="ltn__shop-details-tab-content-inner">
@@ -160,25 +154,6 @@
                                                 {{ product.description }}
                                             </p>
                                         </ShowMore>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="liton_tab_details_1_4">
-                                    <div class="ltn__shop-details-tab-content-inner">
-                                        <h4 class="title-2">Shipping policy for our store</h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam voluptates rerum
-                                            neque ea libero numquam officiis ipsum, consectetur ducimus dicta in earum
-                                            repellat sunt ab odit laboriosam cupiditate ipsam, doloremque.</p>
-                                        <ul>
-                                            <li>1-2 business days (Typically by end of day)</li>
-                                            <li><a href="#">30 days money back guaranty</a></li>
-                                            <li>24/7 live support</li>
-                                            <li>odio dignissim qui blandit praesent</li>
-                                            <li>luptatum zzril delenit augue duis dolore</li>
-                                            <li>te feugait nulla facilisi.</li>
-                                        </ul>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, quia vel
-                                            eligendi ipsam. Ea, quasi quam ducimus recusandae unde ipsa nam rem a minus
-                                            tenetur quae sint voluptatem voluptate inventore.</p>
                                     </div>
                                 </div>
                             </div>

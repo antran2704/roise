@@ -2,9 +2,9 @@
     <Head>
         <Title>{{ title }}</Title>
         <Link rel="canonical" :href="canonical" />
+        <Link rel="icon" href="/img/logo.jpg" />
         <Meta name="description" :content="description" />
         <Meta name="theme-color" content="#ffffff" />
-        <Meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/>
 
         <!-- Open Graph / Facebook -->
         <Meta property="og:type" content="website" />

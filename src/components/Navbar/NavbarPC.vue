@@ -8,8 +8,8 @@
                 <div class="row">
                     <div class="col">
                         <div class="site-logo">
-                            <NuxtLink to="/"><img src="/img/logo.png" alt="Logo" title="Logo" width="auto" height="auto"
-                                    loading="lazy"></NuxtLink>
+                            <NuxtLink to="/"><img src="/img/logo.jpg" alt="Logo" title="Logo" width="auto" height="auto"
+                                    loading="lazy"></NuxtLink>``
                         </div>
                     </div>
                     <div class="col header-contact-serarch-column d-none d-lg-block">
@@ -101,7 +101,7 @@
                         <div class="sticky-logo">
                             <div class="site-logo">
                                 <NuxtLink to="/">
-                                    <img src="/img/logo.png" alt="Logo" title="Logo" width="auto" height="auto"
+                                    <img src="/img/logo.jpg" alt="Logo" title="Logo" width="auto" height="auto"
                                         loading="lazy" />
                                 </NuxtLink>
                             </div>
