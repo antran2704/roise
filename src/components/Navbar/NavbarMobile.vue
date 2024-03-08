@@ -6,7 +6,8 @@
                 <div class="ltn__utilize-menu-head">
                     <div class="site-logo">
                         <NuxtLink to="/">
-                            <img src="/img/logo.jpg" alt="Logo" title="Logo" width="auto" height="auto" loading="lazy" />
+                            <!-- <img src="/img/logo.jpg" alt="Logo" title="Logo" width="auto" height="auto" loading="lazy" /> -->
+                            <p>Tổng Kho Nội Y</p>
                         </NuxtLink>
                     </div>
                     <button class="ltn__utilize-close">×</button>
@@ -58,7 +59,7 @@ const onSearch = () => {
     document.querySelector(".ltn__utilize-overlay").style.display = "none";
     document.querySelector(".ltn__utilize-toggle").classList.remove("close");
 
-    router.replace({ path: '/shop', query: { search: searchText.value, page: 1 } })
+    // router.replace({ path: '/shop', query: { search: searchText.value, page: 1 } })
     searchText.value = null;
 }
 

@@ -163,7 +163,6 @@
             </div>
         </div>
         <SlideProduct :isLoading="pedingOtherProducts" title="Sản phẩm khác" :items="otherProducts" />
-        <Brand />
     </div>
 </template>
 <script setup>

@@ -15,14 +15,13 @@
         </div>
     </div> -->
     <SlideProduct title="Sản phẩm nổi bật" :items="hotProducts" :isLoading="pending" />
-    <Brand />
 </template>
 
 <script setup>
 const runtimeConfig = useRuntimeConfig();
-
 const { data, pending } = await useFetch(`${runtimeConfig.public.apiEndpoint}/product`);
 
 const newProducts = ref(data.value ? data.value.filter(product => product.isShow && product.isNew) : []);
 const hotProducts = ref(data.value ? data.value.filter(product => product.isShow && product.isHot) : []);
+
 </script>

@@ -53,9 +53,7 @@
     </div>
     <!-- FEATURE AREA END -->
 
-    <!-- BRAND LOGO AREA START -->
-    <Brand />
-    <!-- BRAND LOGO AREA END -->
+   
 </template>
 
 <script setup>

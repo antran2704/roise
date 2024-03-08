@@ -1,13 +1,9 @@
 <template>
-    <!-- BREADCRUMB AREA START -->
-    <Breadcrumb title="Shop" :list="[{ label: 'Trang Chủ', path: '/' }, { label: 'Shop' }]" />
-    <!-- BREADCRUMB AREA END -->
-
     <!-- PRODUCT DETAILS AREA START -->
     <div class="ltn__product-area ">
         <div class="container">
             <div class="row">
-                <div class="col-12 order-lg-2 mb-100">
+                <div class="col-12 order-lg-2 mb-100 mt-40">
                     <!-- <div class="ltn__shop-options">
                         <ul>
                             <li>
@@ -37,13 +33,14 @@
                     <div v-if="!message" class="tab-content">
                         <div class="tab-pane fade active show" id="liton_product_grid">
                             <div class="ltn__product-tab-content-inner ltn__product-grid-view">
-                                <ProductRow title="Sản phẩm" :items="showProducts" :isLoading="isLoading" />
+                                <ProductRow :items="showProducts" :isLoading="isLoading" />
                             </div>
                         </div>
                     </div>
 
-                    <Pagination v-if="products.length > PAGE_SIZE && showProducts.length > 0" :currentPage="current_page"
-                        :totalItems="products.length" :pageSize="PAGE_SIZE" :onClick="onClick" />
+                    <Pagination v-if="products.length > PAGE_SIZE && showProducts.length > 0"
+                        :currentPage="current_page" :totalItems="products.length" :pageSize="PAGE_SIZE"
+                        :onClick="onClick" />
                 </div>
             </div>
             <div v-if="message" class="row">
@@ -56,7 +53,6 @@
         </div>
     </div>
     <!-- PRODUCT DETAILS AREA END -->
-    <Brand />
 </template>
 
 <script setup>

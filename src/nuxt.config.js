@@ -11,10 +11,10 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       domain: process.env.NUXT_PUBLIC_DOMAIN,
-      // apiEndpoint: process.env.NUXT_PUBLIC_API_ENDPOINT_DEV,
       apiEndpoint: process.env.NUXT_PUBLIC_API_ENDPOINT_PRO,
+      dockerEndpoint: process.env.NUXT_PUBLIC_API_DOCKER,
       phoneNumber: "0374378089",
-      address: "62 đường số 10, Hiệp Bình Chánh, Thủ Đức, Hồ Chí Minh"
+      address: "62 đường số 10, Hiệp Bình Chánh, Thủ Đức, Hồ Chí Minh",
     },
   },
 
@@ -39,5 +39,10 @@ export default defineNuxtConfig({
     options: {
       scrollBehaviorType: "smooth",
     },
+  },
+  routeRules: {
+    // revalidate after 60 seconds
+    "/": { ssr: 60 },
+    "/product/**": { swr: 60 },
   },
 });

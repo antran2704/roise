@@ -1,5 +1,5 @@
 <template>
-    <footer class="ltn__footer-area ">
+    <footer class="ltn__footer-area">
         <div class="ltn__copyright-area ltn__copyright-2 section-bg-5">
             <div class="container ltn__border-top-2">
                 <div class="d-flex flex-md-row flex-column align-items-center justify-content-between">

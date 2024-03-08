@@ -1,7 +1,7 @@
 <template>
     <div class="ltn__product-area ltn__product-gutter pb-40">
         <div class="container">
-            <div class="row">
+            <div v-if="title" class="row">
                 <div class="col-lg-12">
                     <div class="section-title-area text-center">
                         <h1 class="section-title section-title-border">{{ title }}</h1>

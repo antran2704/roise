@@ -1,5 +1,3 @@
-
-
 <template>
     <div>
         <!-- ltn__header-middle-area start -->
@@ -8,8 +6,9 @@
                 <div class="row">
                     <div class="col">
                         <div class="site-logo">
-                            <NuxtLink to="/"><img src="/img/logo.jpg" alt="Logo" title="Logo" width="auto" height="auto"
-                                    loading="lazy"></NuxtLink>``
+                            <NuxtLink to="/">
+                                <p>Tổng Kho Nội Y</p>
+                            </NuxtLink>
                         </div>
                     </div>
                     <div class="col header-contact-serarch-column d-none d-lg-block">
@@ -19,7 +18,8 @@
                             <!-- header-search-2 -->
                             <div class="header-search-2">
                                 <form id="#123" @submit.prevent="onSearch">
-                                    <input v-model.trim="searchText" type="text" name="search" placeholder="Tìm kiếm..." />
+                                    <input v-model.trim="searchText" type="text" name="search"
+                                        placeholder="Tìm kiếm..." />
                                     <button @click="onSearch" type="submit">
                                         <span><i class="icon-magnifier"></i></span>
                                     </button>
@@ -61,7 +61,7 @@
                                             <p class="fw-bold">Điện thoại</p>
                                             <p>
                                                 <NuxtLink :to='`tel:${runtimeConfig.public.phoneNumber}`'>+{{
-                                                    runtimeConfig.public.phoneNumber }}</NuxtLink>
+                                    runtimeConfig.public.phoneNumber }}</NuxtLink>
                                             </p>
                                         </div>
                                     </div>
@@ -274,7 +274,7 @@ const searchText = ref(null);
 const onSearch = () => {
     if (!searchText.value) return;
 
-    router.replace({ path: '/shop', query: { search: searchText.value, page: 1 } })
+    // router.replace({ path: '/shop', query: { search: searchText.value, page: 1 } })
     searchText.value = null;
 }
 
