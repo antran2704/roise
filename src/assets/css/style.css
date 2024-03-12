@@ -5274,10 +5274,10 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 
 @media (max-width: 575px) {
   .site-logo {
-    min-width: 80px;
-    width: 80px;
+    min-width: unset;
+    width: 100%;
     padding: 0;
-    margin: 0 auto 20px;
+    /* margin: 0 auto 20px; */
   }
 }
 
@@ -7095,6 +7095,11 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   .site-logo a {
     font-size: 24px;
   }
+
+  .site-logo p {
+    font-size: 20px;
+  }
+
   .site-logo a i {
     font-size: 20px;
   }
@@ -7138,7 +7143,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     padding-top: 20px;
     padding-bottom: 20px;
   }
-  .ltn__header-3 .site-logo {
+  .ltn__header-3 .site-logo--PC {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
@@ -8105,7 +8110,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   margin-bottom: 5px;
   text-transform: uppercase;
   font-weight: 400;
-  min-height: 52px;
+  min-height: 44px;
 }
 
 .product-ratting {

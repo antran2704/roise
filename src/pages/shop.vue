@@ -99,7 +99,7 @@ const getProducts = async () => {
 
 
     try {
-        const res = await $fetch(`${runtimeConfig.public.apiEndpoint}/product`);
+        const res = await $fetch(`/api/product`);
         if (res) {
             const resProducts = res.filter(product => product.isShow)
             products.value = resProducts;
@@ -173,11 +173,12 @@ const handleSearch = async (search) => {
 }
 
 onMounted(() => {
-    if (query.search) {
-        handleSearch(query.search);
-    } else {
-        getProducts();
-    }
+    // if (query.search) {
+    //     handleSearch(query.search);
+    // } else {
+    //     getProducts();
+    // }
+    getProducts();
 })
 
 </script>

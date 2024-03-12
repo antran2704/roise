@@ -32,16 +32,16 @@
                                         class="ltn__shop-details-img-gallery ltn__shop-details-img-gallery-2">
                                         <Swiper @swiper="getRef" :modules="[SwiperNavigation]" :slides-per-view="3"
                                             :space-between="10" :navigation="{
-                                                enabled: true,
-                                            }" :breakpoints="{ 768: { slidesPerView: 4 } }" :slides-per-group="1"
+        enabled: true,
+    }" :breakpoints="{ 768: { slidesPerView: 4 } }" :slides-per-group="1"
                                             class="ltn__shop-details-small-img slick-arrow-2">
                                             <SwiperSlide v-for="(image, index) in gallery" :key="index"
                                                 class="single-small-img" @click="() => {
-                                                    currentImage = image
-                                                    onSlideChange();
-                                                }">
-                                                <Image :class="{ isActive: image === currentImage }" :src="image.imageUrl"
-                                                    :alt="product.name" :title="product.name" />
+        currentImage = image.imageUrl
+        onSlideChange();
+    }">
+                                                <Image :class="{ isActive: image === currentImage }"
+                                                    :src="image.imageUrl" :alt="product.name" :title="product.name" />
                                             </SwiperSlide>
                                         </Swiper>
                                     </div>
@@ -53,20 +53,23 @@
 
                                             <div class="product_price-wrap mb-10">
                                                 <div class="product_price">
-                                                    <p class="product_price-title product_title text-nowrap"> Giá bán sỉ:
+                                                    <p class="product_price-title product_title text-nowrap"> Giá bán
+                                                        sỉ:
                                                     </p>
                                                     <p class="product_price-value">
                                                         {{ product.wholesalePrice ?
-                                                            `${formatBigNumber(product.wholesalePrice)}
-                                                                                                                ${CURRENCY_CHARACTER}` : "Đang cập nhật" }}
+        `${formatBigNumber(product.wholesalePrice)}
+                                                        ${CURRENCY_CHARACTER}` : "Đang cập nhật" }}
                                                     </p>
                                                 </div>
                                                 <div class="product_price">
-                                                    <p class="product_price-title product_title text-nowrap"> Giá bán buôn:
+                                                    <p class="product_price-title product_title text-nowrap"> Giá bán
+                                                        buôn:
                                                     </p>
                                                     <p class="product_price-value">
-                                                        {{ product.specialPrice ? `${formatBigNumber(product.specialPrice)}
-                                                                                                                ${CURRENCY_CHARACTER}` : "Đang cập nhật" }}
+                                                        {{ product.specialPrice ?
+        `${formatBigNumber(product.specialPrice)}
+                                                        ${CURRENCY_CHARACTER}` : "Đang cập nhật" }}
                                                     </p>
                                                 </div>
                                             </div>
@@ -77,7 +80,8 @@
                                                         <div class="ltn__size-widget clearfix">
                                                             <strong class="d-meta-title fw-bolder">Color:</strong>
                                                             <ul>
-                                                                <li v-for="color in product.colours">{{ color.name }}</li>
+                                                                <li v-for="color in product.colours">{{ color.name }}
+                                                                </li>
                                                             </ul>
                                                         </div>
                                                     </li>
@@ -95,7 +99,8 @@
 
                                         <div>
                                             <div class="modal-product-brief mb-10">
-                                                <p class="product_price-title product_title fw-bolder">Tổng quan sản phẩm:
+                                                <p class="product_price-title product_title fw-bolder">Tổng quan sản
+                                                    phẩm:
                                                 </p>
                                                 <p class="product_text">
                                                     {{ product.overview }}
@@ -169,9 +174,9 @@
 const runtimeConfig = useRuntimeConfig();
 const route = useRoute();
 const router = useRouter();
-const id = route.params.id;
+const slug = route.params.slug;
 
-const { data: product, pending } = await useFetch(`${runtimeConfig.public.apiEndpoint}/product/${id}`)
+const { data: product, pending } = await useFetch(`/api/product/${slug}`)
 
 if (!product.value && !pending.value) {
     router.push("/404");
@@ -182,10 +187,9 @@ const isShowFancybox = ref(false);
 const currentImage = ref(gallery.length > 0 ? gallery[0].imageUrl : []);
 const currentIndexSlide = ref(0);
 const swiper = ref(null);
-
 const otherProducts = ref([]);
 
-const { pending: pedingOtherProducts } = await useFetch(`${runtimeConfig.public.apiEndpoint}/product`, {
+const { pending: pedingOtherProducts } = await useFetch(`/api/product`, {
     server: false,
     onResponse({ response }) {
         const products = response._data.filter(product => product.isShow).slice(0, 12);
@@ -213,4 +217,5 @@ const onSlideChange = () => {
 
     currentIndexSlide.value = newIndex
 };
+
 </script>

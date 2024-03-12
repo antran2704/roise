@@ -1,7 +1,7 @@
 
 <template>
     <div :class="col">
-        <NuxtLink :to="`${LINK}/${data.id}`" class="ltn__product-item text-center">
+        <NuxtLink :to="`${LINK}/${data.slug}`" class="ltn__product-item text-center">
             <div class="product-img">
                 <Image :isLazy="isLazy" :src="data.picture" :alt="data.name" :title="data.name" />
                 <!-- <img v-if="!isLazy" :src="data.picture" :alt="data.name" :title="data.name" width="auto" height="auto" loading="lazy"/> -->

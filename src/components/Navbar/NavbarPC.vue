@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <div class="site-logo">
+                        <div class="site-logo site-logo--PC">
                             <NuxtLink to="/">
                                 <p>Tổng Kho Nội Y</p>
                             </NuxtLink>
@@ -99,10 +99,9 @@
                 <div class="row">
                     <div class="col header-menu-column justify-content-center">
                         <div class="sticky-logo">
-                            <div class="site-logo">
+                            <div class="site-logo site-logo--PC">
                                 <NuxtLink to="/">
-                                    <img src="/img/logo.jpg" alt="Logo" title="Logo" width="auto" height="auto"
-                                        loading="lazy" />
+                                    <p>Tổng Kho Nội Y</p>
                                 </NuxtLink>
                             </div>
                         </div>

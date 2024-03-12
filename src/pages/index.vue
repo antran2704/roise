@@ -19,7 +19,7 @@
 
 <script setup>
 const runtimeConfig = useRuntimeConfig();
-const { data, pending } = await useFetch(`${runtimeConfig.public.apiEndpoint}/product`);
+const { data, pending } = await useFetch(`/api/product`);
 
 const newProducts = ref(data.value ? data.value.filter(product => product.isShow && product.isNew) : []);
 const hotProducts = ref(data.value ? data.value.filter(product => product.isShow && product.isHot) : []);
